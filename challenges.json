@@ -1,6 +1,12 @@
 {
 	"available": [
-		"sum",
-		"foxtrot"
+		{
+			"name": "sum",
+			"description": "Find the sum of three numbers."
+		},
+		{
+			"name": "foxtrot",
+			"description": "Delta omega foxtrot."
+		}
 	]
 }
