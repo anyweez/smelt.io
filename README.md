@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/anyweez/sorjs.com.svg?branch=master)](https://travis-ci.org/anyweez/sorjs.com)
 
-Web site and serverside content for [sor](https://github.com/anyweez/sor) client. Sor is a community project and accepts challenge contributions from the community. Approved challenges will be immediately available to all `sor` users.
+Web site and serverside content for [sor](https://github.com/anyweez/sor) client. Sor is a community project and accepts challenge contributions from outside contributors. Approved challenges will be immediately available to all `sor` users.
 
 ## Process for challenge approval
 
