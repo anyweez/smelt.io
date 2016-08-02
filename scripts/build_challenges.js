@@ -31,7 +31,9 @@ fs.readdir('challenges/').then(filenames => {
     Promise.all(json.map(name => {
         return fs.readFile(`challenges/${name}`).then(content => JSON.parse(content));
     })).then(results => {
-        return fs.writeFile('./public/challenges.json', JSON.stringify(results.map(convertChallenge)));
+        return fs.writeFile('./public/challenges.json', JSON.stringify({
+            available: results.map(convertChallenge),
+        }));
     });
 
     /**
