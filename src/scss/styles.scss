@@ -13,6 +13,7 @@ $hero-fg-color: #333333;
 body {
     font-family: 'Titillium Web', sans-serif;
     margin: 0;
+    font-size: 1.1em;
 }
 
 header {
@@ -24,14 +25,35 @@ header {
     @include grid-row();
     max-width: none;
 
+    #logo {
+        color: white;
+        height: $header-height * 0.8;
+        opacity: 0.60;
+    }
+
     h1 {
+        margin: 6px 0 0 0;
         text-align: left;
         height: 100%;
-        margin: 0;
         line-height: $header-height;
+        vertical-align: top;
         letter-spacing: .06em;
-        @include grid-column(2);
-        @include grid-column-offset(1);
+
+        font-size: 1.4em;
+        @include grid-column(3);
+        @include grid-column-offset(0);
+        
+        @include breakpoint(medium) {
+            @include grid-column(2);
+            @include grid-column-offset(1);
+            font-size: 1.8em;
+        }
+
+        span {
+            line-height: $header-height - 12px;;
+            display: inline-block;
+            vertical-align: top;
+        }
     }
 
     nav {
@@ -39,9 +61,11 @@ header {
         height: 100%;
         margin: 0;
 
+        font-size: 0.8em;
         text-align: right;
-        @include grid-column(6);
+        @include grid-column(7);
         @include breakpoint(medium) {
+            font-size: 1em;
             @include grid-column(4);
         }
 
@@ -54,8 +78,13 @@ header {
         }
 
         li {
-            text-align: center;
+            text-align: right;
             line-height: $header-height;
+            min-width: 50px;
+
+            @include breakpoint(medium) {
+                text-align: center;
+            }
 
             @include grid-column(2);
             @include grid-column-end();
@@ -74,7 +103,7 @@ header {
 
 section {
     // margin: 10px 0;
-    padding: 80px 0;
+    padding: 40px 0;
     font-weight: light;
 
     @include grid-row();
@@ -88,12 +117,19 @@ section {
 }
 
 section#hero {
-    padding: 90px 0;
+    margin-top: 2px;
+    padding: 80px 0;
     font-family: 'Nunito', sans-serif;
     text-align: center;
     background-color: $hero-bg-color;
     color: $hero-fg-color;
     @include grid-column-offset(0);
+
+    code {
+        font-size: 1.25em;
+        display: block;
+        margin: 25px 0;
+    }
 }
 
 section#details {
@@ -112,6 +148,10 @@ section#details {
     ol {
         line-height: 1.8em;
     }
+
+    a {
+        color: $hero-bg-color;
+    }
 }
 
 footer {
@@ -119,6 +159,7 @@ footer {
     color: $header-fg-color;
     height: $header-height;
     line-height: $header-height;
+    margin-top: 2.5%;
 
     a {
         color: inherit; 

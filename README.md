@@ -17,3 +17,7 @@ Challenges should be thought of as practice problems; there's no specific target
 5. All tests should be runnable in a browserless environment (i.e. Node). We officially support Node 6+.
 
 If you want to submit a challenge, you should submit a pull request (or issue if you have an idea but no code). Challenges consist of a JSON definition file and a JS test file. Every challenge must have both of these files.
+
+## Feedback
+
+Feedback and feature suggestions are welcome - please [file issues](https://github.com/anyweez/sorjs.com/issues).
