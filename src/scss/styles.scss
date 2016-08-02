@@ -1,0 +1,135 @@
+
+@import 'node_modules/foundation-sites/scss/foundation';
+
+@include foundation-grid;
+
+$header-height: 70px;
+
+$header-bg-color: #333333;
+$header-fg-color: #AAAAAA;
+$hero-bg-color: #E8C23E;
+$hero-fg-color: #333333;
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+}
+
+header {
+    vertical-align: middle;
+    height: $header-height;
+
+    background-color: $header-bg-color;
+    color: $header-fg-color;
+    @include grid-row();
+    max-width: none;
+
+    h1 {
+        text-align: left;
+        height: 100%;
+        margin: 0;
+        line-height: $header-height;
+        letter-spacing: .06em;
+        @include grid-column(2);
+        @include grid-column-offset(1);
+    }
+
+    nav {
+        padding: 0;
+        height: 100%;
+        margin: 0;
+
+        text-align: right;
+        @include grid-column(6);
+        @include breakpoint(medium) {
+            @include grid-column(4);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            @include grid-column-offset(1);
+        }
+
+        li {
+            text-align: center;
+            line-height: $header-height;
+
+            @include grid-column(2);
+            @include grid-column-end();
+
+            a {
+                text-decoration: none;
+                color: inherit;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+section {
+    // margin: 10px 0;
+    padding: 80px 0;
+    font-weight: light;
+
+    @include grid-row();
+    @include grid-column-offset(1);
+    max-width: none;
+
+    h3 {
+        font-weight: bold;
+        font-size: 1.4em;
+    }
+}
+
+section#hero {
+    padding: 90px 0;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    background-color: $hero-bg-color;
+    color: $hero-fg-color;
+    @include grid-column-offset(0);
+}
+
+section#details {
+    @include grid-row(1);
+    @include breakpoint(medium) {
+        @include grid-row(12);
+    }
+
+    div {
+        @include grid-column(11);
+        @include breakpoint(medium) {
+            @include grid-column(5);
+        }
+    }
+
+    ol {
+        line-height: 1.8em;
+    }
+}
+
+footer {
+    background-color: $header-bg-color;
+    color: $header-fg-color;
+    height: $header-height;
+    line-height: $header-height;
+
+    a {
+        color: inherit; 
+    }
+
+    @include grid-row();
+    max-width: none;
+
+    p {
+        margin: 0;
+        text-align: right;
+        margin-right: 1%;
+    }
+}
