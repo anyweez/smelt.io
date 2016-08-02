@@ -1,7 +1,7 @@
 {
-  "name": "smelt.io",
+  "name": "sorjs.com",
   "version": "1.0.0",
-  "description": "Serverside content for smelt client",
+  "description": "Serverside content for sor client",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anyweez/smelt.io.git"
+    "url": "git+https://github.com/anyweez/sorjs.com.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anyweez/smelt.io/issues"
+    "url": "https://github.com/anyweez/sorjs.comissues"
   },
-  "homepage": "https://github.com/anyweez/smelt.io#readme",
+  "homepage": "https://github.com/anyweez/sorjs.com#readme",
   "dependencies": {
     "foundation-sites": "^6.2.3",
     "mz": "^2.4.0"
