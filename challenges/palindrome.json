@@ -1,0 +1,14 @@
+{
+    "name": "Backward and forward",
+    "description": "Determine whether a given string is a palindrome.",
+
+    "added_by": "anyweez",
+    "added_on": "2016-08-06",
+    "status": {
+        "available": true
+    },
+
+    "func": "palindrome",
+    "tests": "palindrome.js",
+    "sample": "function palindrome(string) {\n\n}"
+}
