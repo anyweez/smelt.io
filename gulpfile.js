@@ -3,16 +3,18 @@
 let gulp = require('gulp');
 let sass = require('gulp-sass');
 let babel = require('gulp-babel');
+let pug = require('gulp-pug');
 
 gulp.task('default', ['html', 'css', 'js']);
 
 gulp.task('html', function () {
-    return gulp.src('src/*.html')
+    return gulp.src('src/jade/*.jade')
+        .pipe(pug())
         .pipe(gulp.dest('public/'));
 });
 
 gulp.task('css', function () {
-    return gulp.src('src/scss/styles.scss')
+    return gulp.src('src/scss/*.scss')
         .pipe(sass())
         .pipe(gulp.dest('public/css'));
 });

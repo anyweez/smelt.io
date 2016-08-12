@@ -1,0 +1,16 @@
+
+@import 'node_modules/foundation-sites/scss/foundation';
+
+@include foundation-global-styles;
+@include foundation-grid;
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+@import 'partials/variables';
+@import 'partials/header';
+@import 'partials/content';
+@import 'partials/footer';
