@@ -1,0 +1,22 @@
+doctype html
+
+html(lang='en')
+    head
+        title sor
+        include ./partials/head.all.pug
+        link(href='/css/challenge.css', rel='stylesheet', type='text/css')
+
+include ./partials/header.pug
+
+main
+        h2 Challenges
+
+        ul#challenges
+            each challenge in challenges
+                a(href='/challenges/' + challenge.spec.func + '.html') 
+                    li 
+                        h3= challenge.name
+                        h4= challenge.description.short
+                        p= 'Added by ' + challenge.added_by + ' on ' + challenge.added_on
+
+include ./partials/footer.pug

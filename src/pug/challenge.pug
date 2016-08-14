@@ -1,0 +1,27 @@
+//- This is a template for all challenges. Gulp will generate an instance for each problem.doctype html
+doctype html
+
+html(lang='en')
+    head
+        title sor
+        include ./partials/head.all.pug
+        link(href='/css/challenge.css', rel='stylesheet', type='text/css')
+
+include ./partials/header.pug
+
+main
+    h2= challenge.name
+    h3= challenge.description.short
+
+    hr
+
+    section#goal Write a function #[code= challenge.spec.func + '(' + challenge.spec.parameters.join() + ')'] that meets the following description.
+
+    section#description= challenge.description.full
+
+    section#examples Examples:
+    ul
+        each example in challenge.spec.examples
+            li #[code= challenge.spec.func + '(' + example.inputs.join() + ')'] returns #[code= example.output]
+
+include ./partials/footer.pug

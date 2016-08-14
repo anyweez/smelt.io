@@ -1,0 +1,16 @@
+main {
+    @include grid-row();
+    @include breakpoint(small only) {
+        margin: 0 5%;
+    }
+
+    section {
+        margin: 20px 0;
+    }
+
+    li {
+        margin: 10px 0;
+        list-style-type: none;
+    }
+}
+

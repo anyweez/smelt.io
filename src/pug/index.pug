@@ -1,0 +1,31 @@
+doctype html
+
+html(lang='en')
+    head
+        title sor
+        include ./partials/head.all.pug
+        link(href='/css/index.css', rel='stylesheet', type='text/css')
+
+include ./partials/header.pug
+
+main
+    section#hero
+        h2 Hassle-free Javascript practice.
+        h2 For developers, by developers.
+
+        div.terminal
+            code $ npm install -g sor
+    
+    section#details
+        div
+            h3 Get started quickly
+            ol
+                li Install sor and pick a problem from our site.
+                li Write some code to solve it.
+                li Run #[code sor your-filename.js] to test.
+        div
+            h3 Community-inspired challenges
+            p Users can contribute their own challenges to our growing repository, and everyone else benefits.
+            p Learn #[a(href="https://github.com/anyweez/sorjs.com#submitting-challenges") how to contribute] or #[a(href="/challenges.html") see the full list of challenges].
+
+include ./partials/footer.pug

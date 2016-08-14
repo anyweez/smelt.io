@@ -7,6 +7,10 @@ header {
     @include grid-row();
     max-width: none;
 
+    a {
+        color: inherit;
+    }
+
     #logo {
         color: white;
         height: $header-height * 0.8;

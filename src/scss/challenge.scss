@@ -4,8 +4,14 @@
 @include foundation-global-styles;
 @include foundation-grid;
 
+body {
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+    font-size: 1.1em;
+}
+
 @import 'partials/base';
 @import 'partials/variables';
 @import 'partials/header';
-@import 'partials/index'; // content
+@import 'partials/challenge'; // content
 @import 'partials/footer';
