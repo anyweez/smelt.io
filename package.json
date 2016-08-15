@@ -26,6 +26,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-pug": "^3.0.4",
-    "gulp-sass": "^2.3.2"
+    "gulp-sass": "^2.3.2",
+    "marked": "^0.3.6"
   }
 }

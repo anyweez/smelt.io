@@ -3,6 +3,7 @@
 let gulp = require('gulp');
 let sass = require('gulp-sass');
 let babel = require('gulp-babel');
+let marked = require('marked');
 let pug = require('gulp-pug');
 let rename = require('gulp-rename');
 let fs = require('mz').fs;
@@ -11,7 +12,8 @@ function loadc(path) {
     let challenges = [];
 
     let c1 = JSON.parse(fs.readFileSync('challenges/palindrome.json').toString());
-    // c1.description.full = markdown(c1.description.full);
+    c1.description.full = marked(c1.description.full);
+
     challenges.push(c1);
     challenges.push(c1);
 

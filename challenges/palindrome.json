@@ -2,7 +2,7 @@
     "name": "Backward and forward",
     "description": {
         "short": "Determine whether a given string is a palindrome.",
-        "full": "A palindrome is a word or phrase that reads the same way forwards and backwards. Identify whether the provided string is a palindrome and return *true* if so or false if true."
+        "full": "A palindrome is a word or phrase that reads the same way forwards and backwards. Identify whether the provided string is a palindrome and return *true* if so or *false* if not."
     },
 
     "added_by": "anyweez",
