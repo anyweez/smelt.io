@@ -6,8 +6,14 @@ let babel = require('gulp-babel');
 let marked = require('marked');
 let pug = require('gulp-pug');
 let rename = require('gulp-rename');
+let jsonlint = require('gulp-jsonlint');
+let schema = require('gulp-json-schema');
 let fs = require('mz').fs;
 
+/**
+ * Load all of the challenges from `challenges/` and return them as an array of objects.
+ * Translate all properties as expected by the spec (convert markdown to html, etc).
+ */
 function loadc(path) {
     let challenges = [];
 
@@ -22,17 +28,27 @@ function loadc(path) {
 
 gulp.task('default', ['html', 'challenges', 'css', 'js']);
 
+/**
+ * Convert Jade to HTML. Renders non-challenge pages; challenges pages are generated from JSON 
+ * data in the `challenges` task.
+ */
 gulp.task('html', function () {
     return gulp.src(['src/pug/challenges.pug', 'src/pug/index.pug', 'src/pug/guide.pug'])
         .pipe(pug({
-            locals: {
-                challenges: loadc('challenges/'),
-            },
+            locals: { challenges: loadc('challenges/') },
         }))
         .pipe(gulp.dest('public/'));
 });
 
-gulp.task('challenges', function () {
+gulp.task('challenges-validator', function () {
+    return gulp.src('challenges/*.json')
+        .pipe(jsonlint())    
+        .pipe(jsonlint.failOnError())
+        .pipe(jsonlint.reporter())
+        // .pipe(schema('schema/challenge.json'));
+});
+
+gulp.task('challenges', ['challenges-validator'], function () {
     loadc('challenges/').forEach(challenge => {
         return gulp.src('src/pug/challenge.pug')
             .pipe(pug({
