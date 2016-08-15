@@ -13,6 +13,7 @@ function loadc(path) {
     let c1 = JSON.parse(fs.readFileSync('challenges/palindrome.json').toString());
     // c1.description.full = markdown(c1.description.full);
     challenges.push(c1);
+    challenges.push(c1);
 
     return challenges;
 }
@@ -20,7 +21,7 @@ function loadc(path) {
 gulp.task('default', ['html', 'challenges', 'css', 'js']);
 
 gulp.task('html', function () {
-    return gulp.src(['src/pug/challenges.pug', 'src/pug/index.pug'])
+    return gulp.src(['src/pug/challenges.pug', 'src/pug/index.pug', 'src/pug/guide.pug'])
         .pipe(pug({
             locals: {
                 challenges: loadc('challenges/'),

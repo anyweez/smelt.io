@@ -1,0 +1,35 @@
+doctype html
+
+html(lang='en')
+    head
+        title sor
+        include ./partials/head.all.pug
+        link(href='/css/setup.css', rel='stylesheet', type='text/css')
+
+include ./partials/header.pug
+
+main
+    section
+        h2 User guide
+        h3 Installing and using sor
+        p You can download and use the sor client by running #[code npm install -g sor]. If you don't have npm installed, you can download it from #[a(href='https://npmjs.com') npmjs.com]. Once installed, sor will be available globally. 
+
+        p Sor uses function names to identify which problem that you're trying to solve, so be sure the name of your function matches up with the name the problem specifies. You can only solve one problem per file, and we recommend naming the file after the function in it to keep your work organized (though this isn't a strict requirement).
+
+        p If you're using version control, we also suggest keeping all of your solutions in a single repository so that you can take advantage of Sor achievements.
+
+        h3 Solving problems
+
+        p Find a problem you're interested in solving in the #[a(href='/challenges') challenges] section of the site and take note of the required function name. If you're trying to solve #[a(href='/challenges/palindrome') the palindrome problem], for example, the function name will be #[code palindrome]. You can have other functions present in your solution file.
+
+        p Write your solution in a file on your computer and run #[code sor your-filename.js]. This will download all test cases from the Sor server over a secured connection and run them locally on your machine. You'll get output that either verifies that your solution is correct or highlights particular test cases where your attempt fails.
+
+        h3 Sor achievements
+
+        p This feature isn't available yet. More details to come soon!
+
+        h3 Submitting challenges
+
+        p Sor is designed to be a crowdsourced repository of fun practice problems, and benefits greatly from community involvement. If you'd like to submit a challenge proposal, check out the #[a(href='https://github.com/anyweez/sorjs.com#submitting-challenges') contribution guidelines].
+
+include ./partials/footer.pug

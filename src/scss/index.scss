@@ -4,8 +4,8 @@
 @include foundation-global-styles;
 @include foundation-grid;
 
-@import 'partials/base';
 @import 'partials/variables';
+@import 'partials/base';
 @import 'partials/header';
 @import 'partials/index'; // content
 @import 'partials/footer';

@@ -10,13 +10,14 @@ include ./partials/header.pug
 
 main
         h2 Challenges
+        p You can attempt any of the following challenges by #[a(href='/setup') installing the client] and creating a function with the specified name.
 
         ul#challenges
             each challenge in challenges
                 a(href='/challenges/' + challenge.spec.func + '.html') 
                     li 
                         h3= challenge.name
-                        h4= challenge.description.short
+                        h4 #[code= challenge.spec.func] #[span= ' - ' + challenge.description.short]
                         p= 'Added by ' + challenge.added_by + ' on ' + challenge.added_on
 
 include ./partials/footer.pug
