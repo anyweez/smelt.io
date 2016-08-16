@@ -26,6 +26,6 @@
             "output": true
         }]
     },
-
+    
     "tests": "palindrome.js"
 }
