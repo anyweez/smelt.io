@@ -46,7 +46,7 @@
                         "type": "object",
                         "properties": {
                             "inputs": { "type": "array" },
-                            "output": { "type": "boolean" }
+                            "output": {}
                         }
                     }
                 }

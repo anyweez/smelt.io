@@ -15,14 +15,15 @@ let fs = require('mz').fs;
  * Translate all properties as expected by the spec (convert markdown to html, etc).
  */
 function loadc(path) {
-    let challenges = [];
+    let challenges = fs.readdirSync('challenges/')
+        .filter(x => x.endsWith('.json'))
+        .map(name => {
+            let spec = JSON.parse(fs.readFileSync(`challenges/${name}`).toString());
+            spec.description.full = marked(spec.description.full);
 
-    let c1 = JSON.parse(fs.readFileSync('challenges/palindrome.json').toString());
-    c1.description.full = marked(c1.description.full);
-
-    challenges.push(c1);
-    challenges.push(c1);
-
+            return spec;
+        });
+        
     return challenges;
 }
 
