@@ -41,7 +41,7 @@ gulp.task('html', function () {
 });
 
 gulp.task('challenges-validator', function () {
-    return gulp.src('challenges/palindrome.json')
+    return gulp.src('challenges/*.json')
         .pipe(jsonlint())    
         .pipe(jsonlint.failOnError())
         .pipe(jsonlint.reporter())
