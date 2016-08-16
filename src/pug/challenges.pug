@@ -10,11 +10,11 @@ include ./partials/header.pug
 
 main
         h2 Challenges
-        p You can attempt any of the following challenges by #[a(href='/setup') installing the client] and creating a function with the specified name.
+        p You can attempt any of the following challenges by #[a(href='/guide') installing the client] and creating a function with the specified name.
 
         ul#challenges
             each challenge in challenges
-                a(href='/challenges/' + challenge.spec.func + '.html') 
+                a(href='/challenges/' + challenge.spec.func) 
                     li 
                         h3= challenge.name
                         h4 #[code= challenge.spec.func] #[span= ' - ' + challenge.description.short]

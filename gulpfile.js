@@ -82,8 +82,8 @@ gulp.task('challenges', ['challenges-validator'], function () {
                     challenge: challenge,
                 },
             }))
-            .pipe(rename(challenge.spec.func + '.html'))
-            .pipe(gulp.dest('public/challenges'));
+            .pipe(rename('index.html'))
+            .pipe(gulp.dest(`public/challenges/${challenge.spec.func}`));
     });
 });
 
