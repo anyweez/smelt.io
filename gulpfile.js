@@ -23,7 +23,7 @@ function loadc(path) {
 
             return spec;
         });
-        
+
     return challenges;
 }
 
@@ -34,16 +34,41 @@ gulp.task('default', ['html', 'challenges', 'css', 'js']);
  * data in the `challenges` task.
  */
 gulp.task('html', function () {
-    return gulp.src(['src/pug/challenges.pug', 'src/pug/index.pug', 'src/pug/guide.pug'])
-        .pipe(pug({
-            locals: { challenges: loadc('challenges/') },
-        }))
-        .pipe(gulp.dest('public/'));
+    let pages = [];
+    let challenges = loadc('challenges/');
+
+    pages.push(
+        gulp.src('src/pug/challenges.pug')
+            .pipe(pug({
+                locals: { challenges: challenges },
+            }))
+            .pipe(rename('index.html'))
+            .pipe(gulp.dest('public/challenges/'))
+    );
+
+    pages.push(
+        gulp.src('src/pug/index.pug')
+            .pipe(pug({
+                locals: { challenges: challenges },
+            }))
+            .pipe(gulp.dest('public/'))
+    );
+
+    pages.push(
+        gulp.src('src/pug/guide.pug')
+            .pipe(pug({
+                locals: { challenges: challenges },
+            }))
+            .pipe(rename('index.html'))
+            .pipe(gulp.dest('public/guide'))
+    );
+    
+    return pages;
 });
 
 gulp.task('challenges-validator', function () {
     return gulp.src('challenges/*.json')
-        .pipe(jsonlint())    
+        .pipe(jsonlint())
         .pipe(jsonlint.failOnError())
         .pipe(jsonlint.reporter())
         .pipe(schema('schema/challenge.json'));
