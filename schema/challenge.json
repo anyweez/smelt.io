@@ -1,0 +1,63 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Sor Challenge Definition",
+    "description": "An individual challenge in the Sor challenge database.",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The challenge title for display purposes."
+        },
+        "description": {
+            "type": "object",
+            "properties": {
+                "short": { "type": "string" },
+                "full": { "type": "string" }
+            },
+            "required": ["short", "full"]
+        },
+        "added_by": {
+            "type": "string",
+            "description": "An alphanumeric username for the user who submitted the challenge."
+        },
+        "added_on": {
+            "type": "string",
+            "pattern": "[0-9]{4}-[0-9]{2}-[0-9]{2}",
+            "description": "YYYY-MM-DD when the challenge was added to the repository."
+        },
+        "status": {
+            "type": "object",
+            "description": "Flags related to where and whether the challenge should appear.",
+            "properties": {
+                "available": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "spec": {
+            "type": "object",
+            "properties": {
+                "func": { "type": "string" },
+                "parameters": { "type": "array" },
+                "returns": { "type": "string" },
+                "examples": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "inputs": { "type": "array" },
+                            "output": { "type": "boolean" }
+                        }
+                    }
+                }
+            },
+            "required": ["func", "parameters", "returns"]
+        },
+        "tests": { 
+            "type": "string" ,
+            "description": "Path to the file containing tests for this problem."
+        }
+    },
+    "required": ["name", "description", "added_by", "added_on", "spec", "tests"],
+    "additionalProperties": false
+}
