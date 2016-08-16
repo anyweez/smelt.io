@@ -1,7 +1,6 @@
 const process = require('process');
-process.cwd(process.env.SMELT_BASE_DIR);
-const test = require(`${process.env.SMELT_BASE_DIR}/node_modules/ava`).test;
-const palindrome = require('./smelt.target');
+const test = require('ava').test;
+const palindrome = require('./sor.target');
 
 test('identifies palindromes with even character counts', t => {
     t.true(palindrome('Anna'));

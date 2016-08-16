@@ -14,7 +14,7 @@ const fs = require('mz/fs');
 function convertChallenge(raw) {
     return {
         title: raw.name,
-        func: raw.func,
+        func: raw.spec.func,
         description: raw.description,
     };
 }
