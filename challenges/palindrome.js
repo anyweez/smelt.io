@@ -1,5 +1,5 @@
 const process = require('process');
-const test = require('ava').test;
+const test = require(process.env.SOR_RUNNER_DIR).test;
 const palindrome = require('./sor.target');
 
 test('identifies palindromes with even character counts', t => {

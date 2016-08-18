@@ -1,5 +1,5 @@
 const process = require('process');
-const test = require('ava').test;
+const test = require(process.env.SOR_RUNNER_DIR).test;
 const changemaker = require('./sor.target');
 
 test('works for the general case', t => {
