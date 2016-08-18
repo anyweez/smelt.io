@@ -16,8 +16,9 @@ main
             each challenge in challenges
                 a(href='/challenges/' + challenge.spec.func) 
                     li 
-                        h3= challenge.name
+                        div
+                            h3= challenge.name
+                            p= 'added by ' + challenge.added_by + ' on ' + challenge.added_on
                         h4 #[code= challenge.spec.func] #[span= ' - ' + challenge.description.short]
-                        p= 'Added by ' + challenge.added_by + ' on ' + challenge.added_on
 
 include ./partials/footer.pug
