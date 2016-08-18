@@ -1,0 +1,31 @@
+{
+    "name": "Weaver",
+    "description": {
+        "short": "Weave the specified letter into the provided string.",
+        "full": "Write a function that accepts three parameters: a string (x), a letter (y), and a number (z). Replace every zth character in the string x with the letter y and return the new string."
+    },
+
+    "added_by": "anyweez",
+    "added_on": "2016-08-18",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "weaver",
+        "parameters": ["string", "string", "number"],
+        "returns": "string",
+        "examples": [{
+            "inputs": ["first attempt", "x", 3],
+            "output": "fixstxatxemxt"
+        },{
+            "inputs": ["more great food", "a", 2],
+            "output": "mara araatafaoa"
+        },{
+            "inputs": ["jeb kicks", "t", 6],
+            "output": "jeb ktcks"
+        }]
+    },
+    
+    "tests": "weaver.js"
+}
