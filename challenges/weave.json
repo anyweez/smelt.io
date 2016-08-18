@@ -27,5 +27,5 @@
         }]
     },
     
-    "tests": "weaver.js"
+    "tests": "weave.js"
 }
