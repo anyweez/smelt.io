@@ -1,0 +1,31 @@
+{
+    "name": "Pig-latinify",
+    "description": {
+        "short": "Return the pig Latin version of the provided sentence.",
+        "full": "[Pig Latin](https://en.wikipedia.org/wiki/Pig_Latin) is a transformation to the English language where the first letter of each word is moved to the end of the word, then the suffix 'ay' is added to the end. Convert the provided sentence into pig Latin."
+    },
+
+    "added_by": "anyweez",
+    "added_on": "2016-08-17",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "piglatin",
+        "parameters": ["string"],
+        "returns": "string",
+        "examples": [{
+            "inputs": ["'another great deed'"],
+            "output": "notheraay reatgay eedday"
+        },{
+            "inputs": ["'one two three'"],
+            "output": "neoay wotay hreetay"
+        },{
+            "inputs": ["'flag'"],
+            "output": "lagfay"
+        }]
+    },
+    
+    "tests": "piglatin.js"
+}
