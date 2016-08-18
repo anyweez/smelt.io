@@ -16,14 +16,14 @@
         "parameters": ["string", "string", "number"],
         "returns": "string",
         "examples": [{
-            "inputs": ["first attempt", "x", 3],
-            "output": "fixstxatxemxt"
+            "inputs": ["'first attempt'", "'x'", 3],
+            "output": "'fixstxatxemxt'"
         },{
-            "inputs": ["more great food", "a", 2],
-            "output": "mara araatafaoa"
+            "inputs": ["'more great food'", "'a'", 2],
+            "output": "'mara araatafaoa'"
         },{
-            "inputs": ["jeb kicks", "t", 6],
-            "output": "jeb ktcks"
+            "inputs": ["'jeb kicks'", "'t'", 6],
+            "output": "'jeb ktcks'"
         }]
     },
     
