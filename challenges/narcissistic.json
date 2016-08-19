@@ -1,0 +1,31 @@
+{
+    "name": "Rampant narcissism",
+    "description": {
+        "short": "Find the xth positive narcissistic number.",
+        "full": "Recreational mathematicians have identified a type of number called a [narcissistic number](http://mathworld.wolfram.com/NarcissisticNumber.html), which isn't particularly useful but is a true hit at dinner parties. Never one to be outdone, you realize it may be wise to have a narcissist number finder function in your bag of tricks. Write a function that accepts one number (x) and returns the xth positive narcissistic number."
+    },
+
+    "added_by": "anyweez",
+    "added_on": "2016-08-18",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "narcissistic",
+        "parameters": ["number"],
+        "returns": "number",
+        "examples": [{
+            "inputs": [1],
+            "output": 0
+        },{
+            "inputs": [15],
+            "output": 1634
+        },{
+            "inputs": [19],
+            "output": 92727
+        }]
+    },
+    
+    "tests": "narcissistic.js"
+}
