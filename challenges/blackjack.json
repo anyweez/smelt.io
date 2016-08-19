@@ -16,13 +16,13 @@
         "parameters": ["array"],
         "returns": "boolean",
         "examples": [{
-            "inputs": [[5, 7, 2, "Q"]],
+            "inputs": [[5, 7, 2, "'Q'"]],
             "output": true
         },{
-            "inputs": [["Q", "J"]],
+            "inputs": [["'Q'", "'J'"]],
             "output": false
         },{
-            "inputs": [["A", "Q", 2]],
+            "inputs": [["'A'", "'Q'", 2]],
             "output": false
         }]
     },
