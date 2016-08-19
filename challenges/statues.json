@@ -1,0 +1,31 @@
+{
+    "name": "The Statue Palace",
+    "description": {
+        "short": "Identify how many houses are placed within two blocks of statues.",
+        "full": "Everyone loves living near statues. Write a function that accepts a single string as an input and returns the number of 'desirable' houses, where 'desirable' is defined as being within two blocks of a statue. Each character represents a single block, with 'S' representing statues, 'L' representing lots, and 'H' representing houses."
+    },
+
+    "added_by": "anyweez",
+    "added_on": "2016-08-19",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "statues",
+        "parameters": ["string"],
+        "returns": "number",
+        "examples": [{
+            "inputs": ["'SSHLHHHH'"],
+            "output": 1
+        },{
+            "inputs": ["'HLHHSHLSH'"],
+            "output": 4
+        },{
+            "inputs": ["'HLHLLS'"],
+            "output": 0
+        }]
+    },
+    
+    "tests": "statues.js"
+}
