@@ -1,0 +1,31 @@
+{
+    "name": "Phoney calls",
+    "description": {
+        "short": "Reformatting US phone numbers",
+        "full": "Valid US phone numbers can be either seven (no area code) or ten digits (incl. area code) long. In practice you can see these numbers written in a variety of formats, but it'd be nice if we could format valid phone numbers similarly. Write a function that converts valid phone numbers into a standard format. Valid seven-digit numbers should follow the pattern `XXX-XXXX`. Valid ten-digit numbers should follow the pattern `(XXX) XXX-XXXX`. Invalid phone numbers (not seven or ten digits) should return `undefined`."
+    },
+
+    "added_by": "anyweez",
+    "added_on": "2016-08-19",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "phonenum",
+        "parameters": ["string"],
+        "returns": "string",
+        "examples": [{
+            "inputs": ["'123 456 7890'"],
+            "output": "'(123) 456-7890'"
+        },{
+            "inputs": ["'1112222'"],
+            "output": "'111-2222'"
+        },{
+            "inputs": ["'(111)222 9999'"],
+            "output": "'(111) 222-9999'"
+        }]
+    },
+    
+    "tests": "phonenum.js"
+}
