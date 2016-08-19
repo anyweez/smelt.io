@@ -1,0 +1,31 @@
+{
+    "name": "X over easy",
+    "description": {
+        "short": "Find the length of the longest run of x's in the provided string",
+        "full": "Write a function that extracts the length of the longest continuous run of x's in the provided string."
+    },
+
+    "added_by": "anyweez",
+    "added_on": "2016-08-18",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "longx",
+        "parameters": ["string"],
+        "returns": "number",
+        "examples": [{
+            "inputs": ["'xoxxxoooxx'"],
+            "output": 3
+        },{
+            "inputs": ["'xooo'"],
+            "output": 1
+        },{
+            "inputs": ["'xtraxtraxrxxxxx"],
+            "output": 5
+        }]
+    },
+    
+    "tests": "longx.js"
+}
