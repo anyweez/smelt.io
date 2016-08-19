@@ -1,0 +1,31 @@
+{
+    "name": "Rosebud",
+    "description": {
+        "short": "Implementing the classic Sims cheat code.",
+        "full": "Some say that there was a cheat code for the original Sims that involved typing the phrase 'rosebud' followed by some number of exclamation points, followed by a 1. The cheat code would give one thousand credits for each exclamation point. Write a function that, when passed a string, returns the number of credits that the Sims would be rewarded with."
+    },
+
+    "added_by": "anyweez",
+    "added_on": "2016-08-19",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "rosebud",
+        "parameters": ["string"],
+        "returns": "number",
+        "examples": [{
+            "inputs": ["'rosebud!!!!1"],
+            "output": 4000
+        },{
+            "inputs": ["'rosebud!1"],
+            "output": 1000
+        },{
+            "inputs": ["'heathcliff'"],
+            "output": 0
+        }]
+    },
+    
+    "tests": "rosebud.js"
+}
