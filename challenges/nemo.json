@@ -14,7 +14,17 @@
     "spec": {
         "func": "nemo",
         "parameters": ["number", "number"],
-        "returns": "number"
+        "returns": "number",
+        "examples": [{
+            "inputs": [0.2, 15],
+            "output": 0.16
+        },{
+            "inputs": [0.3, 15],
+            "output": 0.48
+        },{
+            "inputs": [0.8, 30],
+            "output": 0.97
+        }]
     },
     
     "tests": "nemo.js"
