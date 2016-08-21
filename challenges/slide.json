@@ -1,0 +1,21 @@
+{
+    "name": "Sliding along",
+    "description": {
+        "short": "Compute the sliding average of a set of numbers.",
+        "full": "Write a function that returns an object with two function properties: `add(number)`, which adds a new value, and `get()`, which returns the average of the (up to) four most recently added values."
+    },
+
+    "added_by": "anyweez",
+    "added_on": "2016-08-21",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "slide",
+        "parameters": [],
+        "returns": "object"
+    },
+    
+    "tests": "slide.js"
+}

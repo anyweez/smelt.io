@@ -19,10 +19,11 @@ main
 
     section#description!= challenge.description.full
 
-    section#examples Examples:
-    ul
-        each example in challenge.spec.examples
-            li #[code= challenge.spec.func + '(' + example.inputs.join() + ')'] returns #[code= example.output]
+    if challenge.spec.hasOwnProperty('examples')
+        section#examples Examples:
+        ul
+            each example in challenge.spec.examples
+                li #[code= challenge.spec.func + '(' + example.inputs.join() + ')'] returns #[code= example.output]
 
 div(class='push')
 include ./partials/footer.pug
