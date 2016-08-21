@@ -1,9 +1,13 @@
+.push {
+    height: $header-height / 2;
+}
+
 footer {
     background-color: $header-bg-color;
     color: $header-fg-color;
     height: $header-height;
     line-height: $header-height;
-    margin-top: 2.5%;
+    // margin-top: 2.5%;
 
     a {
         color: inherit; 
