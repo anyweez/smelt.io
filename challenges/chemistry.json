@@ -1,0 +1,31 @@
+{
+    "name": "Splurthian Chemistry",
+    "description": {
+        "short": "Find valid chemical symbols in an imaginary periodic table.",
+        "full": "The inhabitants of the planet Splurth are building their own periodic table of the elements. Just like Earth's periodic table has a chemical symbol for each element (H for Hydrogen, Li for Lithium, etc.), so does Splurth's. However, their chemical symbols must follow certain rules:\n\n 1. All chemical symbols should be exactly two letters long.\n\n 2. Both letters in the symbol must appear in the element name.\n\n 3. The letters in the symbol must appear in the same order in the symbol and element name."
+    },
+
+    "added_by": "/u/Cosmologicon",
+    "added_on": "2016-08-25",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "chemistry",
+        "parameters": ["string", "string"],
+        "returns": "boolean",
+        "examples": [{
+            "inputs": ["'Hydrogen'", "'Yg'"],
+            "output": true
+        },{
+            "inputs": [["'Iron'", "'Or'"]],
+            "output": false
+        },{
+            "inputs": [["'Gold'", "'G'"]],
+            "output": false
+        }]
+    },
+    
+    "tests": "chemistry.js"
+}
