@@ -22,7 +22,7 @@
             "inputs": ["'xooo'"],
             "output": 1
         },{
-            "inputs": ["'xtraxtraxrxxxxx"],
+            "inputs": ["'xtraxtraxrxxxxx'"],
             "output": 5
         }]
     },
