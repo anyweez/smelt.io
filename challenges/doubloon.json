@@ -1,0 +1,31 @@
+{
+    "name": "Power bills",
+    "description": {
+        "short": "Determine the cost of a power bill based on how long the lights are left on.",
+        "full": "Sudenia lives in a pirate village and electricity is in short supply. It costs her one doubloon every hour that her lights are on, but she thinks her power company may be up to no good. She's started recording when she turns her lights on and off, and has enlistened your help for determining what her bill *should* be. \n\nHelp enlighten her by writing a function that can accept a single string composed of three characters: `1` (turned lights on), `0` (turned lights off), and `-` (didn't adjust lights), and return the number of doubloons she owes for the given period.\n\nSudenia occassionally makes mistakes recording her data, so you can ignore events suggesting that she turns on lights when they're already on or turns off lights when they're already off."
+    },
+
+    "added_by": "anyweez",
+    "added_on": "2016-08-25",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "doubloon",
+        "parameters": ["string"],
+        "returns": "number",
+        "examples": [{
+            "inputs": ["'1---0-1-'"],
+            "output": 6
+        },{
+            "inputs": ["'1--'"],
+            "output": 3
+        },{
+            "inputs": ["'10---'"],
+            "output": 1
+        }]
+    },
+    
+    "tests": "doubloon.js"
+}
