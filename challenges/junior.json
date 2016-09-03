@@ -5,7 +5,10 @@
         "full": "Find the second largest number in the provided array. If the largest value exists twice, it counts as both the largest and second largest value."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-17",
     "status": {
         "available": true

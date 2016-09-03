@@ -5,7 +5,10 @@
         "full": "Nemo was caught in a terrible storm and flung into the sea with only a life raft, fishing pole, and ten fish to his name. Write a function that accepts two parameters: the probability that Nemo will catch a fish on a given day, and the number of days he needs to survive before being rescued, and returns the probability of surviving the provided number of days, rounded to two decimal places. Assume that Nemo needs to eat one fish per day to survive."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-21",
     "status": {
         "available": true

@@ -5,7 +5,10 @@
         "full": "Write a function that accepts a phone number and converts it into a standard syntax: XXX-XXXX for seven digit numbers, (XXX) XXX-XXXX for ten digits numbers. Provided phone numbers will always have either seven (no area code) or ten (area code) numeric characters, and may include parenthesis, dashes, spaces, etc. Any input that doesn't include seven or ten digits should return `undefined`."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-19",
     "status": {
         "available": true

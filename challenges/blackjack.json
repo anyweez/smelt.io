@@ -5,7 +5,10 @@
         "full": "[Blackjack](https://en.wikipedia.org/wiki/Blackjack) is a card game where the goal is to get as close to 21 points without going over.  Face cards count as ten points, numbered cards are worth the value shown on their face, and aces can be worth either one or eleven (player's choice). Players 'bust' when they exceed 21 points, and lose the hand. Write a function that returns true when the provided deck busts (totals more than 21) and false when it doesn't."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-18",
     "status": {
         "available": true

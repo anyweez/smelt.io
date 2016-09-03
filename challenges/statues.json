@@ -5,7 +5,10 @@
         "full": "Everyone loves living near statues. Write a function that accepts a single string as an input and returns the number of 'desirable' houses, where 'desirable' is defined as being within two blocks of a statue. Each character represents a single block, with 'S' representing statues, 'L' representing lots, and 'H' representing houses."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-19",
     "status": {
         "available": true

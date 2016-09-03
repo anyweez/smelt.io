@@ -5,7 +5,10 @@
         "full": "Write a function that extracts the length of the longest continuous run of x's in the provided string."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-19",
     "status": {
         "available": true

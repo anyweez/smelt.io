@@ -5,7 +5,10 @@
         "full": "Sudenia lives in a pirate village and electricity is in short supply. It costs her one doubloon every hour that her lights are on, but she thinks her power company may be up to no good. She's started recording when she turns her lights on and off, and has enlistened your help for determining what her bill *should* be. \n\nHelp enlighten her by writing a function that can accept a single string composed of three characters: `1` (turned lights on), `0` (turned lights off), and `-` (didn't adjust lights), and return the number of doubloons she owes for the given period.\n\nSudenia occassionally makes mistakes recording her data, so you can ignore events suggesting that she turns on lights when they're already on or turns off lights when they're already off."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-25",
     "status": {
         "available": true

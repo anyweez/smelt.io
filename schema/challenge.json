@@ -17,8 +17,12 @@
             "required": ["short", "full"]
         },
         "added_by": {
-            "type": "string",
-            "description": "An alphanumeric username for the user who submitted the challenge."
+            "type": "object",
+            "properties": {
+                "name": { "type": "string", "description": "An alphanumeric username for the user who submitted the challenge." },
+                "url": { "type": "string", "description": "Optional URL for this user."}
+            },
+            "required": ["name"]
         },
         "added_on": {
             "type": "string",

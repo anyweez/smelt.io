@@ -18,7 +18,7 @@ main
                     li 
                         div
                             h3= challenge.name
-                            p= 'added by ' + challenge.added_by + ' on ' + challenge.added_on
+                            p= 'added by ' + challenge.added_by.name + ' on ' + challenge.added_on
                         h4 #[code= challenge.spec.func] #[span= ' - ' + challenge.description.short]
 
 include ./partials/footer.pug

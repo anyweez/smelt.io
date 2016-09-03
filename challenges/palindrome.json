@@ -5,7 +5,10 @@
         "full": "A palindrome is a word or phrase that reads the same way forwards and backwards. Identify whether the provided string is a palindrome and return *true* if so or *false* if not."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-06",
     "status": {
         "available": true

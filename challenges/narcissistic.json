@@ -5,7 +5,10 @@
         "full": "Recreational mathematicians have identified a type of number called a [narcissistic number](http://mathworld.wolfram.com/NarcissisticNumber.html), which isn't particularly useful but is a true hit at dinner parties. Never one to be outdone, you realize it may be wise to have a narcissist number finder function in your bag of tricks. Write a function that accepts one number (x) and returns the xth positive narcissistic number."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-18",
     "status": {
         "available": true

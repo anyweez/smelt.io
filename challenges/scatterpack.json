@@ -5,7 +5,10 @@
         "full": "Determine if two shuffled arrays of numbers contain the same elements. You cannot use `Array.prototype.sort()`."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-20",
     "status": {
         "available": true

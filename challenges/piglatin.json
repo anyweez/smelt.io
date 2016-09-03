@@ -5,7 +5,10 @@
         "full": "[Pig Latin](https://en.wikipedia.org/wiki/Pig_Latin) is a transformation to the English language where the first letter of each word is moved to the end of the word, then the suffix 'ay' is added to the end. Convert the provided sentence into pig Latin."
     },
 
-    "added_by": "anyweez",
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
     "added_on": "2016-08-17",
     "status": {
         "available": true
