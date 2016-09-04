@@ -44,17 +44,32 @@ main {
                 margin-bottom: 15px;
 
                 h3 {
-                    @include grid-column(8);
+                    @include grid-column(7);
 
                     margin: 0;
                     font-size: 1.25em;
+
+                    .difficulty {
+                        margin: 0 0.9em 0 0;
+                        display: inline-block;
+                        font-weight: 300;
+
+                        .diff-yes {
+                            color: black;
+                        }
+
+                        .diff-no {
+                            color: #ccc;
+                        }
+                    }
                 }
 
-                p {
-                    @include grid-column(4);
-                    margin: 0;
+                p.source {
+                    @include grid-column(3);
                     text-align: right;
                     font-size: 0.9em;
+                    
+                    margin: 0;
                     font-weight: 300;
                 }
 

@@ -19,13 +19,13 @@
         "parameters": ["array"],
         "returns": "number",
         "examples": [{
-            "inputs": [[1, 5, 4, 1]],
+            "inputs": ["[1, 5, 4, 1]"],
             "output": "4"
         },{
-            "inputs": [[10, 14, 17, 9, 18]],
+            "inputs": ["[10, 14, 17, 9, 18]"],
             "output": "17"
         },{
-            "inputs": [[1, 2, 3, 5, 5]],
+            "inputs": ["[1, 2, 3, 5, 5]"],
             "output": "5"
         }]
     },

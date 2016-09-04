@@ -17,8 +17,17 @@ main
                 a(href='/challenges/' + challenge.spec.func) 
                     li 
                         div
-                            h3= challenge.name
-                            p= 'added by ' + challenge.added_by.name + ' on ' + challenge.added_on
+                            h3
+                                p.difficulty
+                                    each v in [0, 1, 2, 3]
+                                        if challenge.difficulty >= v
+                                            span.diff-yes &#9737;
+                                        else
+                                            span.diff-no &#9737;
+                            
+                                span= challenge.name
+
+                            p.source= 'added by ' + challenge.added_by.name + ' on ' + challenge.added_on
                         h4 #[code= challenge.spec.func] #[span= ' - ' + challenge.description.short]
 
 include ./partials/footer.pug
