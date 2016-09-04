@@ -15,14 +15,29 @@ let fs = require('mz').fs;
  * Translate all properties as expected by the spec (convert markdown to html, etc).
  */
 function loadc(path) {
+    // Perhaps weird default: if no difficulty is specified, assign a random difficulty.
+    function displayDifficulty(raw) {
+        if (raw === undefined) return Math.random() * 4;
+        else return Math.floor(raw * 4);
+    }
+
+    let difficulties = JSON.parse(fs.readFileSync('difficulty.json')).scores;
+
     let challenges = fs.readdirSync('challenges/')
         .filter(x => x.endsWith('.json'))
         .map(name => {
-            let spec = JSON.parse(fs.readFileSync(`challenges/${name}`).toString());
-            spec.description.full = marked(spec.description.full);
+            let def = JSON.parse(fs.readFileSync(`challenges/${name}`).toString());
+            def.description.full = marked(def.description.full);
+            def.difficulty = displayDifficulty(difficulties[def.spec.func]);
 
-            return spec;
+            return def;
         });
+
+    // Sort by difficulty
+    challenges.sort((first, second) => {
+        if (first.difficulty < second.difficulty) return -1;
+        else return 1;
+    });
 
     return challenges;
 }
@@ -62,7 +77,7 @@ gulp.task('html', function () {
             .pipe(rename('index.html'))
             .pipe(gulp.dest('public/guide'))
     );
-    
+
     return pages;
 });
 
