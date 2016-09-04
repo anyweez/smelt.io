@@ -15,10 +15,20 @@ let fs = require('mz').fs;
  * Translate all properties as expected by the spec (convert markdown to html, etc).
  */
 function loadc(path) {
+    // Convert difficulty scores to a value that can be rendered, currently an integer [0, 3]
     // Perhaps weird default: if no difficulty is specified, assign a random difficulty.
     function displayDifficulty(raw) {
         if (raw === undefined) return Math.random() * 4;
         else return Math.floor(raw * 4);
+    }
+
+    function renderParam(param) {
+        if (typeof (param) === 'string') return param;
+        if (typeof (param) === 'number') return param.toString();
+        if (Array.isArray(param)) return `[${param.join(', ')}]`;
+
+        console.warn(`Unknown input type: ${typeof (param)} for ${param}`)
+        return param;
     }
 
     let difficulties = JSON.parse(fs.readFileSync('difficulty.json')).scores;
@@ -27,8 +37,17 @@ function loadc(path) {
         .filter(x => x.endsWith('.json'))
         .map(name => {
             let def = JSON.parse(fs.readFileSync(`challenges/${name}`).toString());
+            // Render markdown in the challenge description
             def.description.full = marked(def.description.full);
+            // Convert raw difficulties to renderable scores
             def.difficulty = displayDifficulty(difficulties[def.spec.func]);
+            // Inputs should be converted into strings.
+            if (def.spec.examples) {
+                def.spec.examples = def.spec.examples.map(example => {
+                    example.inputs = example.inputs.map(renderParam);
+                    return example;
+                });
+            }
 
             return def;
         });
