@@ -7,7 +7,7 @@ footer {
     color: $header-fg-color;
     height: $header-height;
     line-height: $header-height;
-    // margin-top: 2.5%;
+    font-size: 0.9em;
 
     a {
         color: inherit; 
@@ -20,5 +20,9 @@ footer {
         margin: 0;
         text-align: right;
         margin-right: 1%;
+    }
+
+    .highlight {
+        font-weight: bold;
     }
 }
