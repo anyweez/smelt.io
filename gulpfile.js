@@ -25,7 +25,16 @@ function loadc(path) {
     function renderParam(param) {
         if (typeof (param) === 'string') return param;
         if (typeof (param) === 'number') return param.toString();
+        if (typeof (param) === 'boolean') return param.toString();
         if (Array.isArray(param)) return `[${param.join(', ')}]`;
+        if (typeof (param) === 'object') {
+            let fragments = [];
+            for (let prop in param) {
+                fragments.push(`${prop}: ${renderParam(param[prop])}`);
+            }
+
+            return '{ ' + fragments.join(', ') + ' }';
+        }
 
         console.warn(`Unknown input type: ${typeof (param)} for ${param}`)
         return param;
@@ -37,6 +46,7 @@ function loadc(path) {
         .filter(x => x.endsWith('.json'))
         .map(name => {
             let def = JSON.parse(fs.readFileSync(`challenges/${name}`).toString());
+
             // Render markdown in the challenge description
             def.description.full = marked(def.description.full);
             // Convert raw difficulties to renderable scores
@@ -45,6 +55,8 @@ function loadc(path) {
             if (def.spec.examples) {
                 def.spec.examples = def.spec.examples.map(example => {
                     example.inputs = example.inputs.map(renderParam);
+                    example.output = renderParam(example.output);
+
                     return example;
                 });
             }

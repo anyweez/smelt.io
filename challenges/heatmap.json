@@ -1,0 +1,46 @@
+{
+    "name": "Heating up",
+    "description": {
+        "short": "Convert a intensity rating into a color.",
+        "full": "Heatmaps are used for displaying intensities (crime rates, for example) as colors, often in a grid. One of the more important calculations in a heatmap is how a particular value translates into a color.\n\nWrite a function that returns an object with a `red`, `green`, and `blue` property that range from 0 - 255. The function should accept a single number (1-100) as an input. The higher the number, the more red there should be. The lower the number, the more blue there should be. There should always be no green."
+    },
+
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
+    "added_on": "2016-09-05",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "heatmap",
+        "parameters": ["number"],
+        "returns": "object",
+        "examples": [{
+            "inputs": [100],
+            "output": {
+                "red": 255,
+                "green": 0,
+                "blue": 0
+            }
+        },{
+            "inputs": [0],
+            "output": {
+                "red": 0,
+                "green": 0,
+                "blue": 255
+            }
+        },{
+            "inputs": [75],
+            "output": {
+                "red": 191.25,
+                "green": 0,
+                "blue": 63.75
+            }
+        }]
+    },
+    
+    "tests": "heatmap.js"
+}
