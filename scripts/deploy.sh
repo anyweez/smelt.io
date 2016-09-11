@@ -10,7 +10,7 @@ if [ "$TRAVIS_BRANCH" == "master" ]; then
     cp -r public/* deploy/
 #    cd deploy
 
-    aws s3 sync deploy s3://sorjs
+    opt/aws/bin/aws s3 sync deploy s3://sorjs
     # Git configuration, commit, and push
 #    git config user.name "Travis CI"
 #    git config user.email "none@none.com"
