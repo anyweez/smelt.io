@@ -1,0 +1,6 @@
+This file is just a static placeholder so that attempt logging requests return 200's.
+
+Note that all attempts are transmitted anonymously; the only application-specific information
+that's included are the challenge name and whether your attempt passed all tests or not.
+
+This information is used for dynamically rating the difficulty of problems.
