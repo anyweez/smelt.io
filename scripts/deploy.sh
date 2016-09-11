@@ -8,14 +8,15 @@ if [ "$TRAVIS_BRANCH" == "master" ]; then
 
     # Copy in new content
     cp -r public/* deploy/
-    cd deploy
+#    cd deploy
 
+    aws s3 sync deploy s3://sorjs
     # Git configuration, commit, and push
-    git config user.name "Travis CI"
-    git config user.email "none@none.com"
-    git add *
-    git commit -a -m "Automated push from Travis"
-    git push
+#    git config user.name "Travis CI"
+#    git config user.email "none@none.com"
+#    git add *
+#    git commit -a -m "Automated push from Travis"
+#    git push
 
 else
     echo "Skipping deployment (non-master branch $TRAVIS_BRANCH)."
