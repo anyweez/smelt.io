@@ -1,0 +1,34 @@
+{
+    "name": "Anagram Detector",
+    "description": {
+        "short": "Determine if two strings are anagrams of each other.",
+        "full": "Anagrams are phrases composed of valid words that use the same letters in different orders. Write a function that identifies whether two strings are anagrams. Punctation, capitalization, and spacing can all be ignored. Shuffling the same words around is *not* a valid anagram."
+    },
+
+    "added_by": {
+        "name": "/u/jnazario",
+        "url": "https://www.reddit.com/user/jnazario"
+    },
+    "added_on": "2016-09-12",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "anagram",
+        "parameters": ["string", "string"],
+        "returns": "boolean",
+        "examples": [{
+            "inputs": ["Clint Eastwood", "Old West Action"],
+            "output": true
+        },{
+            "inputs": ["Reddit", "Eat dirt"],
+            "output": false
+        },{
+            "inputs": ["Hello there", "There hello"],
+            "output": false
+        }]
+    },
+    
+    "tests": "anagram.js"
+}
