@@ -1,0 +1,37 @@
+{
+    "name": "Jump game",
+    "description": {
+        "short": "Determine if you can jump to the end of the provided array.",
+        "full": "You're provided with an array of numbers, each representing the distance you can move in the forward or backward direction from that position. Write a function that determines whether it's possible to move from the first to last element in the array through some combination of forward and backward movements. \nNote that you can only move the complete distance; no partial moves allowed."
+    },
+
+    "added_by": {
+        "name": "Leetcode",
+        "url": "https://leetcode.com/problems/jump-game/"
+    },
+    "added_on": "2016-09-13",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "jumpgame",
+        "parameters": ["array"],
+        "returns": "boolean",
+        "examples": [{
+            "inputs": [[1, 1, 2]],
+            "output": true
+        },{
+            "inputs": [[1, 1, 2, 0]],
+            "output": false
+        },{
+            "inputs": [[2, 3, 1, 0, 2]],
+            "output": true
+        },{
+            "inputs": [[2, 3, 1, 0, 3, 1, 8, 3, 4, 2, 3]],
+            "output": true
+        }]
+    },
+    
+    "tests": "jumpgame.js"
+}
