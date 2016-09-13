@@ -5,6 +5,7 @@
     },
     "scores": {
 	"anagram": 0.3,
+	"binary": 0.7,
         "blackjack": 0.4,
         "changemaker": 0.3,
         "chemistry": 0.5,

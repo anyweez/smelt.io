@@ -1,0 +1,34 @@
+{
+    "name": "Back to binary",
+    "description": {
+        "short": "Convert a decimal integer into binary.",
+        "full": "A [binary number](https://en.wikipedia.org/wiki/Binary_number), or 'base 2' number, is a value that's expressed using only two possible digits: 0 and 1. Write a function that accepts a positive integer as a parameter and returns its binary equivalent.\nYou cannot use `parseInt()` or `Number.prototype.toString()`."
+    },
+
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
+    "added_on": "2016-09-13",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "binary",
+        "parameters": ["number"],
+        "returns": "number",
+        "examples": [{
+            "inputs": [15],
+            "output": 1111
+        },{
+            "inputs": [1000],
+            "output": 1111101000
+        },{
+            "inputs": [189],
+            "output": 10111101
+        }]
+    },
+    
+    "tests": "binary.js"
+}
