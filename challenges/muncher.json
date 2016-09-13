@@ -1,0 +1,37 @@
+{
+    "name": "Munchin' numbers",
+    "description": {
+        "short": "Extract prices from HTML.",
+        "full": "[Web scraping](https://en.wikipedia.org/wiki/Web_scraping) is a technique for extracting information from websites, and often involves trying to use patterns in the page's HTML to extract useful information. Given a chunk of HTML, write a function that extracts the price (in USD) from the HTML string. If there is no valid price present, return `null`."
+    },
+
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
+    "added_on": "2016-08-17",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "muncher",
+        "parameters": ["string"],
+        "returns": "number",
+        "examples": [{
+            "inputs": ["<div><p class='price'>$18.99</p>"],
+            "output": 18.99
+        },{
+            "inputs": ["<h1>Lessons available for only $5!</h1>"],
+            "output": 5
+        },{
+            "inputs": ["<div>Pizza and eggs for only $5.99999</div>"],
+            "output": null
+        },{
+            "inputs": ["<section><p class='highlight'>That'll be 5.</p></section>"],
+            "output": null
+        }]
+    },
+    
+    "tests": "muncher.js"
+}
