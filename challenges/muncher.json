@@ -30,6 +30,9 @@
         },{
             "inputs": ["<section><p class='highlight'>That'll be 5.</p></section>"],
             "output": null
+        },{
+            "inputs": ["<p>I've given you $15 2 times today!</p>"],
+            "output": 15
         }]
     },
     
