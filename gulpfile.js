@@ -23,6 +23,8 @@ function loadc(path) {
     }
 
     function renderParam(param) {
+        if (param === null) return "null";
+        if (param === undefined) return "undefined";
         if (typeof (param) === 'string') return `"${param}"`;
         if (typeof (param) === 'number') return param.toString();
         if (typeof (param) === 'boolean') return param.toString();
