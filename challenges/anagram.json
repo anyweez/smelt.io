@@ -1,5 +1,5 @@
 {
-    "name": "Anagram Detector",
+    "name": "Anagram detector",
     "description": {
         "short": "Determine if two strings are anagrams of each other.",
         "full": "Anagrams are phrases composed of valid words that use the same letters in different orders. Write a function that identifies whether two strings are anagrams. Punctation, capitalization, and spacing can all be ignored. Shuffling the same words around is *not* a valid anagram."
