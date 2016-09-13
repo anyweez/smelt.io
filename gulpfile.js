@@ -23,7 +23,7 @@ function loadc(path) {
     }
 
     function renderParam(param) {
-        if (typeof (param) === 'string') return param;
+        if (typeof (param) === 'string') return `"${param}"`;
         if (typeof (param) === 'number') return param.toString();
         if (typeof (param) === 'boolean') return param.toString();
         if (Array.isArray(param)) return `[${param.join(', ')}]`;
