@@ -1,21 +1,21 @@
 {
-    "name": "Junior",
+    "name": "Problem name (for display_",
     "description": {
-        "short": "Find the second largest number in an array.",
-        "full": "Find the second largest number in the provided array. If the largest value exists twice, it counts as both the largest and second largest value."
+        "short": "One-line summary.",
+        "full": "Full description. Include enough detail to clearly describe the problem, but be concise."
     },
 
     "added_by": {
-        "name": "anyweez",
-        "url": "https://github.com/anyweez"
+        "name": "your name",
+        "url": "your url (personal site, github, twitter, etc)"
     },
-    "added_on": "2016-08-17",
+    "added_on": "YYYY-MM-DD",
     "status": {
         "available": true
     },
 
     "spec": {
-        "func": "junior",
+        "func": "example",
         "parameters": ["array"],
         "returns": "number",
         "examples": [{
@@ -30,5 +30,5 @@
         }]
     },
     
-    "tests": "junior.js"
+    "tests": "example.js"
 }
