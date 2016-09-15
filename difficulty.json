@@ -25,6 +25,7 @@
         "slide": 0.6,
         "statues": 0.7,
         "weaver": 0.3,
+	"wordhunt": 0.3,
         "heatmap": 0.3
     }
 }
