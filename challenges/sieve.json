@@ -1,0 +1,31 @@
+{
+    "name": "Sieve of Eratosthenes",
+    "description": {
+        "short": "Find all prime numbers below a given threshold",
+        "full": "The [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) is an ancient Greek method for identifying all prime numbers up to a certain threshold. Write a function that accepts a threshold value and returns the number of prime numbers below the threshold."
+    },
+
+    "added_by": {
+        "name": "anyweez",
+        "url": "https://github.com/anyweez"
+    },
+    "added_on": "2016-09-15",
+    "status": {
+        "available": true
+    },
+
+    "spec": {
+        "func": "sieve",
+        "parameters": ["number"],
+        "returns": "number",
+        "examples": [{
+            "inputs": [10],
+            "output": 4
+        },{
+            "inputs": [72],
+            "output": 20
+        }]
+    },
+    
+    "tests": "sieve.js"
+}
