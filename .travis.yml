@@ -11,6 +11,9 @@ before_script:
     - pip install --user awscli
     - export PATH=$PATH:$HOME/.local/bin
     - npm install -g gulp
-script: npm run build
+script: 
+    - npm run build
+    - serve public &
+    - scripts/attempt_all.sh
 after_success:
     - scripts/deploy.sh
