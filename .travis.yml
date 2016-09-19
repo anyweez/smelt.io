@@ -10,10 +10,11 @@ node_js:
 before_script:
     - pip install --user awscli
     - export PATH=$PATH:$HOME/.local/bin
-    - npm install -g gulp
+    - npm install -g gulp sor
 script: 
     - npm run build
     - serve public &
     - scripts/attempt_all.sh
+    - pkill serve
 after_success:
     - scripts/deploy.sh
