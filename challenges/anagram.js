@@ -9,13 +9,13 @@ test('Detects valid anagrams', t => {
     t.true(anagram('wisdom', 'mid sow'));
     t.true(anagram('the eyes', 'they see'));
     t.true(anagram('Clint Eastwood', 'Old West Action'))
+    t.true(anagram('Anagram', 'aaagmnr'));
 });
 
 test('Rejects invalid anagrams', t => {
     t.false(anagram('parliament', 'false man'));
     t.false(anagram('Astronomers', 'Moon starer'));
     t.false(anagram('Not one', 'At ALL'));
-    t.false(anagram('Anagram', 'aaagmnr'));
 });
 
 test('fails for rearranged words', t => {

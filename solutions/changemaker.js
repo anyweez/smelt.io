@@ -1,4 +1,3 @@
-
 function changemaker(amount) {
   let bills = [0, 0, 0, 0];
 
