@@ -15,6 +15,7 @@ script:
     - npm run build
     - serve public &
     - sleep 5
+    - scripts/verify_challenges.js
     - scripts/attempt_all.sh
 after_success:
     - scripts/deploy.sh

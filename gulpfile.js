@@ -22,6 +22,10 @@ function loadc(path) {
         else return Math.floor(raw * 4);
     }
 
+    /**
+     * Converts all parameters into strings that can be displayed in a challenge rendering (usually
+     * HTML).
+     */
     function renderParam(param) {
         if (param === null) return "null";
         if (param === undefined) return "undefined";
