@@ -11,5 +11,5 @@ test('finds profitable paths', t => {
 
 test('no profitable paths available', t => {
     t.deepEqual(investor([5, 1]), 0);
-    t.deepEqual(investor([11, 5, 4, 2, 1], 0));
+    t.deepEqual(investor([11, 5, 4, 2, 1]), 0);
 });

@@ -2,6 +2,8 @@ const process = require('process');
 const test = require(process.env.SOR_RUNNER_DIR).test;
 const narcissistic = require('./sor.target');
 
+console.warn('Warning: this test is somewhat slow!');
+
 test('correctly finds narcissistic numbers', t => {
     t.deepEqual(narcissistic(1), 0);
     t.deepEqual(narcissistic(11), 153);

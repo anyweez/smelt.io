@@ -3,38 +3,38 @@ const test = require(process.env.SOR_RUNNER_DIR).test;
 const chemistry = require('./sor.target');
 
 test('passes the common cases', t => {
-    t.deepEqual(chemistry('Argon', 'An'), true);
-    t.deepEqual(chemistry('Argon', 'Ro'), true);
+    t.true(chemistry('Argon', 'An'));
+    t.true(chemistry('Argon', 'Ro'));
 
-    t.deepEqual(chemistry('Nickel', 'Nk'), true);
-    t.deepEqual(chemistry('Nickel', 'Ck'), true);
+    t.true(chemistry('Nickel', 'Nk'));
+    t.true(chemistry('Nickel', 'Ck'));
 
-    t.deepEqual(chemistry('Hydrogen', 'Hd'), false);
-    t.deepEqual(chemistry('Hydrogen', 'Dn'), false);
-    t.deepEqual(chemistry('Hydrogen', 'Rg'), false);
+    t.true(chemistry('Hydrogen', 'Hd'));
+    t.true(chemistry('Hydrogen', 'Dn'));
+    t.true(chemistry('Hydrogen', 'Rg'));
 });
 
 test('rejects symbols that arent two letters', t => {
-    t.deepEqual(chemistry('Iron', 'I'), false);
-    t.deepEqual(chemistry('Iron', 'Irn'), false);
-    t.deepEqual(chemistry('Gold', 'G'), false);
-    t.deepEqual(chemistry('Gold', 'Gol'), false);
-    t.deepEqual(chemistry('Hydrogen', 'H'), false);
-    t.deepEqual(chemistry('Hydrogen', 'Hydro'), false);
+    t.false(chemistry('Iron', 'I'));
+    t.false(chemistry('Iron', 'Irn'));
+    t.false(chemistry('Gold', 'G'));
+    t.false(chemistry('Gold', 'Gol'));
+    t.false(chemistry('Hydrogen', 'H'));
+    t.false(chemistry('Hydrogen', 'Hydro'));
 });
 
 test('rejects symbols that dont contain letters from element name', t => {
-    t.deepEqual(chemistry('Hydrogen', 'Xr'), false);
-    t.deepEqual(chemistry('Nickel', 'Hr'), false);
-    t.deepEqual(chemistry('Nickel', 'Kt'), false);
-    t.deepEqual(chemistry('Gold', 'Dp'), false);
-    t.deepEqual(chemistry('Gold', 'Ra'), false);
-    t.deepEqual(chemistry('Gold', 'Iv'), false);
+    t.false(chemistry('Hydrogen', 'Xr'));
+    t.false(chemistry('Nickel', 'Hr'));
+    t.false(chemistry('Nickel', 'Kt'));
+    t.false(chemistry('Gold', 'Dp'));
+    t.false(chemistry('Gold', 'Ra'));
+    t.false(chemistry('Gold', 'Iv'));
 });
 
 test('reject symbols that dont match element letter ordering', t => {
-    t.deepEqual(chemistry('Hydrogen', 'Ng'), false);
-    t.deepEqual(chemistry('Hydrogen', 'Dy'), false);
-    t.deepEqual(chemistry('Nickel', 'Li'), false);
-    t.deepEqual(chemistry('Nickel', 'Ek'), false);
+    t.false(chemistry('Hydrogen', 'Ng'));
+    t.false(chemistry('Hydrogen', 'Dy'));
+    t.false(chemistry('Nickel', 'Li'));
+    t.false(chemistry('Nickel', 'Ek'));
 });
