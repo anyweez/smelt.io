@@ -17,9 +17,11 @@ Challenges should be thought of as practice problems; there's no specific target
 
 If you want to submit a challenge, you should [create an issue on this repository](https://github.com/anyweez/sorjs.com/issues/new?labels=challenge). You can also submit a pull request with both a JS and JSON file (see [examples](https://github.com/anyweez/sorjs.com/tree/master/challenges) and the [challenge schema](https://github.com/anyweez/sorjs.com/blob/master/schema/challenge.json)).
 
-## Challenge schema
+Challenges are composed of three files, each of which must share the same filename (sans extension):
 
-There is a strict schema for challenge definitions [available here](https://github.com/anyweez/sorjs.com/blob/master/schema/challenge.json). This schema will likely change some over time; contributors are not expected to update submitted challenges after the challenge has been accepted.
+1. The *challenge definition* describes all metadata related to the challenge. There is a well-defined schema for challenge definitions [available here](https://github.com/anyweez/sorjs.com/blob/master/schema/challenge.json). Challenge definitions are JSON files kept in the `challenges/` directory. 
+2. The *challenge tests* are [ava](https://github.com/avajs/ava) tests and validate the correctness of a particular solution. Challenge tests are Javascript files kept in the `challenges/` directory.
+3. The *sample solution*, which must pass all of the challenge tests. Solutions are Javascript files kept in the `solutions/` directory.
 
 ## Feedback
 

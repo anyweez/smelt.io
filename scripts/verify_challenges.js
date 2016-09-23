@@ -71,3 +71,5 @@ else if (solutions.length > challenges.size) throw new Error(`Too many challenge
 for (let name of solutions.map(x => x.split('.')[0])) {
     if (!challenges.has(name)) throw new Error(`Solution for unknown challenge: ${name}`);
 }
+
+console.log('Success!');

@@ -5,7 +5,7 @@ const weaver = require('./sor.target');
 test('standard cases', t => {
     t.deepEqual(weaver('temptation', 't', 1), 'tttttttttt');
     t.deepEqual(weaver('first attempt', 'x', 3), 'fixstxatxemxt');
-    t.deepEqual(weaver('more great food', 'a', 2), 'mara araatafaoa');
+    t.deepEqual(weaver('more great food', 'a', 2), 'mara araaa aoad');
     t.deepEqual(weaver('jeb kicks', 't', 6), 'jeb ktcks');
     t.deepEqual(weaver('pearl kingdom', 'x', 5), 'pearx kinxdom');
 });
