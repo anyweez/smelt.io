@@ -1,10 +1,12 @@
+function _match(word, pattern) {
+    if (word.length !== pattern.length) return false;
+
+    let keepers = word.split('')
+        .filter((letter, i) => pattern[i] === '_' || letter === pattern[i]);
+
+    return keepers.length === word.length;
+}
+
 function wordhunt(words, pattern) {
-    return words
-        .filter(word => word.length === pattern.length)
-        .filter(word => {
-            for (let i = 0; i < word.length; i++) {
-                if (pattern[i] !== '_' && pattern[i] !== word[i]) return false;
-            }
-            return true;
-        }).length;
+    return words.filter(word => _match(word, pattern)).length;
 }

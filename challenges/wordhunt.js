@@ -11,5 +11,5 @@ test('properly matches pattern', t => {
     t.deepEqual(wordhunt(['word', 'bird', 'nerd', 'third'], 'b_de'), 0);
     t.deepEqual(wordhunt(['word', 'bird', 'nerd', 'third'], 'b_d'), 0);
 
-    t.deepEqual(wordhunt([], 0));
+    t.deepEqual(wordhunt([], '_b_b_'), 0);
 });

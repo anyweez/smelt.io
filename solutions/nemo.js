@@ -1,4 +1,4 @@
-const ITERATIONS = 100000;
+const ITERATIONS = 1000000;
 
 function nemo(prob_catch, days) {
     function go_fishing() {
