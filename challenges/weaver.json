@@ -30,5 +30,5 @@
         }]
     },
     
-    "tests": "weave.js"
+    "tests": "weaver.js"
 }

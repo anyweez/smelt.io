@@ -1,18 +1,19 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const piglatin = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('Convert single words', t => {
-    t.deepEqual(piglatin('tower'), 'owertay');
-    t.deepEqual(piglatin('trombone'), 'rombonetay');
-    t.deepEqual(piglatin('I'), 'Iay');
-    t.deepEqual(piglatin('chomp'), 'hompcay');
-    t.deepEqual(piglatin('be'), 'ebay');
-});
+const test = runner.test(piglatin);
 
-test('Convert sentences', t => {
-    t.deepEqual(piglatin('once before'), 'nceoay eforebay');
-    t.deepEqual(piglatin('coding time'), 'odingcay imetay');
-    t.deepEqual(piglatin('cows eat stacks of grass'), 'owscay ateay tackssay foay rassgay');
-    t.deepEqual(piglatin('xmen distribute justice'), 'menxay istributeday usticejay');
-});
+// convert single words
+test.trial('tower').produces('owertay');
+test.trial('trombone').produces('rombonetay');
+test.trial('I').produces('Iay');
+test.trial('chomp').produces('hompcay');
+test.trial('be').produces('ebay');
+
+// convert sentences
+test.trial('once before').produces('nceoay eforebay');
+test.trial('coding time').produces('odingcay imetay');
+test.trial('cows eat stacks of grass').produces('owscay ateay tackssay foay rassgay');
+test.trial('xmen distribute justice').produces('menxay istributeday usticejay');
+
+module.exports = test;

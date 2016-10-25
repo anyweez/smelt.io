@@ -2,7 +2,7 @@
     "name": "Back to binary",
     "description": {
         "short": "Convert a decimal integer into binary.",
-        "full": "A [binary number](https://en.wikipedia.org/wiki/Binary_number), or 'base 2' number, is a value that's expressed using only two possible digits: 0 and 1. Write a function that accepts a positive integer as a parameter and returns its binary equivalent.\nYou cannot use `parseInt()` or `Number.prototype.toString()`."
+        "full": "A [binary number](https://en.wikipedia.org/wiki/Binary_number), or 'base 2' number, is a value that's expressed using only two possible digits: 0 and 1. Write a function that accepts a positive integer as a parameter and returns its binary equivalent as a string.\nYou cannot use `parseInt()` or `Number.prototype.toString()`."
     },
 
     "added_by": {
@@ -17,16 +17,16 @@
     "spec": {
         "func": "binary",
         "parameters": ["number"],
-        "returns": "number",
+        "returns": "string",
         "examples": [{
             "inputs": [15],
-            "output": 1111
+            "output": "1111"
         },{
             "inputs": [1000],
-            "output": 1111101000
+            "output": "1111101000"
         },{
             "inputs": [189],
-            "output": 10111101
+            "output": "10111101"
         }]
     },
     

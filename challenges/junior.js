@@ -1,21 +1,21 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const junior = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('works for the general case', t => {
-    t.deepEqual(junior([15, 18, 11, 10]), 15);
-    t.deepEqual(junior([1, 2, 3, 4, 5]), 4);
-    t.deepEqual(junior([10, 14, 17, 9, 18]), 17);
-    t.deepEqual(junior([11, 2, 3, 4, 5]), 5);
-    t.deepEqual(junior([8, 1]), 1);
-});
+const test = runner.test(junior);
 
-test('works for negative numbers', t => {
-    t.deepEqual(junior([-1, -2, -3, -4, -5]), -2);
-    t.deepEqual(junior([1, 2, 3, -4, -5]), 2);
-});
+// Works for the general case
+test.trial([15, 18, 11, 10]).produces(15);
+test.trial([1, 2, 3, 4, 5]).produces(4);
+test.trial([10, 14, 17, 9, 18]).produces(17);
+test.trial([11, 2, 3, 4, 5]).produces(5);
+test.trial([8, 1]).produces(1);
 
-test('works with duplicated largest numbers', t => {
-    t.deepEqual(junior([1, 2, 3, 5, 5]), 5);
-    t.deepEqual(junior([5, 8, 5, 8]), 8);
-});
+// Works for negative numbers
+test.trial([-1, -2, -3, -4, -5]).produces(-2);
+test.trial([1, 2, 3, -4, -5]).produces(2);
+
+// Works with duplicated largest numbers
+test.trial([1, 2, 3, 5, 5]).produces(5);
+test.trial([5, 8, 5, 8]).produces(8);
+
+module.exports = test;

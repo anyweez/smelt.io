@@ -1,11 +1,17 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const wordhunt = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('positive tests', t => {
-    t.true(wordhunt(1, 2, 3));
-});
+const test = runner.test(wordhunt);
 
-test('negative tests', t => {
-    t.false(wordhunt(4, 5, 6));
-});
+// properly matches pattern
+test.trial(['about', 'abler', 'creep', 'oboes'], '_b___').produces(3);
+test.trial(['arctic', 'apple', 'frankie'], 'a_c___').produces(1);
+test.trial(['arctic', 'apple', 'frankie'], '__art').produces(0);
+
+test.trial(['word', 'bird', 'nerd', 'third'], '__rd').produces(3);
+test.trial(['word', 'bird', 'nerd', 'third'], 'b_de').produces(0);
+test.trial(['word', 'bird', 'nerd', 'third'], 'b_d').produces(0);
+
+test.trial([], '_b_b_').produces(0);
+
+module.exports = test;

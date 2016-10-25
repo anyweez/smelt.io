@@ -1,24 +1,25 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const anagram = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('Detects valid anagrams', t => {
-    t.true(anagram('nights', 'things'));
-    t.true(anagram('Friend', 'finder'));
-    t.true(anagram('oceans', 'canoes'));
-    t.true(anagram('wisdom', 'mid sow'));
-    t.true(anagram('the eyes', 'they see'));
-    t.true(anagram('Clint Eastwood', 'Old West Action'))
-});
+const test = runner.test(anagram);
 
-test('Rejects invalid anagrams', t => {
-    t.false(anagram('parliament', 'false man'));
-    t.false(anagram('Astronomers', 'Moon starer'));
-    t.false(anagram('Not one', 'At ALL'));
-    t.false(anagram('Anagram', 'aaagmnr'));
-});
+// Valid anagrams
+test.trial('nights', 'things').produces(true);
+test.trial('Friend', 'finder').produces(true).otherwise('Are you accounting for capitalization?');
+test.trial('oceans', 'canoes').produces(true);
+test.trial('wisdom', 'mid sow').produces(true).otherwise('Don\'t forget to ignore spaces.');
+test.trial('the eyes', 'they see').produces(true);
+test.trial('Clint Eastwood', 'Old West Action').produces(true);
+test.trial('Anagram', 'aaagmnr').produces(true);
 
-test('fails for rearranged words', t => {
-    t.false(anagram('Hello there', 'There hello'));
-    t.false(anagram('This shall not pass', 'Pass this shall not'));
-});
+// Invalid anagrams
+test.trial('parliament', 'false man').produces(false);
+test.trial('Astronomers', 'Moon starer').produces(false);
+test.trial('Not one', 'At ALL').produces(false);
+
+// Fails for rearranged words
+test.trial('Hello there', 'There hello').produces(false);
+test.trial('Hello there', 'there Hello').produces(false);
+test.trial('This shall not pass', 'Pass this shall not').produces(false);
+
+module.exports = test;

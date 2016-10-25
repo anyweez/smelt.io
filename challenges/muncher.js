@@ -1,21 +1,17 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const muncher = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('works for the general case', t => {
-    t.deepEqual(muncher([15, 18, 11, 10]), 15);
-    t.deepEqual(muncher([1, 2, 3, 4, 5]), 4);
-    t.deepEqual(muncher([10, 14, 17, 9, 18]), 17);
-    t.deepEqual(muncher([11, 2, 3, 4, 5]), 5);
-    t.deepEqual(muncher([8, 1]), 1);
-});
+const test = runner.test(muncher);
 
-test('works for negative numbers', t => {
-    t.deepEqual(muncher([-1, -2, -3, -4, -5]), -2);
-    t.deepEqual(muncher([1, 2, 3, -4, -5]), 2);
-});
+// Single run of x's
+test.trial('<div><p class="price">$18.99</p></div>').produces(18.99);
+test.trial('<h1>Lessons available for only $5!</h1>').produces(5);
+test.trial('<p>I\'ve given you $15 2 times today!</p>').produces(15);
 
-test('works with duplicated largest numbers', t => {
-    t.deepEqual(muncher([1, 2, 3, 5, 5]), 5);
-    t.deepEqual(muncher([5, 8, 5, 8]), 8);
-});
+// Multiple runs of x's
+test.trial('<div>Pizza and eggs for only $5.99999</div>').produces(null);
+test.trial('<cite>"Sorry but $5.9 is not a valid price," she said.</cite>').produces(null);
+test.trial('<cite>The unfinished graffiti read "$5."</cite>').produces(null);
+test.trial('<section><p class=\'highlight\'>That\'ll be 5.</p></section>').produces(null);
+
+module.exports = test;

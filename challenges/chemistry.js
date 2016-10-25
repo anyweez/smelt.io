@@ -1,40 +1,37 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const chemistry = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('passes the common cases', t => {
-    t.deepEqual(chemistry('Argon', 'An'), true);
-    t.deepEqual(chemistry('Argon', 'Ro'), true);
+const test = runner.test(chemistry);
 
-    t.deepEqual(chemistry('Nickel', 'Nk'), true);
-    t.deepEqual(chemistry('Nickel', 'Ck'), true);
+// Passes the common case
+test.trial('Argon', 'An').produces(true);
+test.trial('Argon', 'Ro').produces(true);
+test.trial('Nickel', 'Nk').produces(true);
+test.trial('Nickel', 'Ck').produces(true);
+test.trial('Hydrogen', 'Hd').produces(true);
+test.trial('Hydrogen', 'Dn').produces(true);
+test.trial('Hydrogen', 'Rg').produces(true);
 
-    t.deepEqual(chemistry('Hydrogen', 'Hd'), false);
-    t.deepEqual(chemistry('Hydrogen', 'Dn'), false);
-    t.deepEqual(chemistry('Hydrogen', 'Rg'), false);
-});
+// Reject symbols that aren't two letters
+test.trial('Iron', 'I').produces(false);
+test.trial('Iron', 'Irn').produces(false);
+test.trial('Gold', 'G').produces(false);
+test.trial('Gold', 'Gol').produces(false);
+test.trial('Hydrogen', 'H').produces(false);
+test.trial('Hydrogen', 'Hydro').produces(false);
 
-test('rejects symbols that arent two letters', t => {
-    t.deepEqual(chemistry('Iron', 'I'), false);
-    t.deepEqual(chemistry('Iron', 'Irn'), false);
-    t.deepEqual(chemistry('Gold', 'G'), false);
-    t.deepEqual(chemistry('Gold', 'Gol'), false);
-    t.deepEqual(chemistry('Hydrogen', 'H'), false);
-    t.deepEqual(chemistry('Hydrogen', 'Hydro'), false);
-});
+// Rejects symbols that dont contain letters from element name
+test.trial('Hydrogen', 'Xr').produces(false);
+test.trial('Nickel', 'Hr').produces(false);
+test.trial('Nickel', 'Kt').produces(false);
+test.trial('Gold', 'Dp').produces(false);
+test.trial('Gold', 'Ra').produces(false);
+test.trial('Gold', 'Iv').produces(false);
 
-test('rejects symbols that dont contain letters from element name', t => {
-    t.deepEqual(chemistry('Hydrogen', 'Xr'), false);
-    t.deepEqual(chemistry('Nickel', 'Hr'), false);
-    t.deepEqual(chemistry('Nickel', 'Kt'), false);
-    t.deepEqual(chemistry('Gold', 'Dp'), false);
-    t.deepEqual(chemistry('Gold', 'Ra'), false);
-    t.deepEqual(chemistry('Gold', 'Iv'), false);
-});
+// Reject symbols that dont match element letter ordering
+test.trial('Hydrogen', 'Ng').produces(false);
+test.trial('Hydrogen', 'Dy').produces(false);
+test.trial('Nickel', 'Li').produces(false);
+test.trial('Nickel', 'Ek').produces(false);
 
-test('reject symbols that dont match element letter ordering', t => {
-    t.deepEqual(chemistry('Hydrogen', 'Ng'), false);
-    t.deepEqual(chemistry('Hydrogen', 'Dy'), false);
-    t.deepEqual(chemistry('Nickel', 'Li'), false);
-    t.deepEqual(chemistry('Nickel', 'Ek'), false);
-});
+module.exports = test;

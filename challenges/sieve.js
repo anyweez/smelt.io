@@ -1,12 +1,14 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const sieve = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('properly counts primes', t => {
-    t.deepEqual(sieve(1), 0);
-    t.deepEqual(sieve(2), 0);
-    t.deepEqual(sieve(10), 4);
-    t.deepEqual(sieve(72), 20);
-    t.deepEqual(sieve(200), 46);
-    t.deepEqual(sieve(5000), 669);
-});
+const test = runner.test(sieve);
+
+// correctly identifies later versio
+test.trial(1).produces(0);
+test.trial(2).produces(0);
+test.trial(10).produces(4);
+test.trial(72).produces(20);
+test.trial(200).produces(46);
+test.trial(5000).produces(669);
+
+module.exports = test;

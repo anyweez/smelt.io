@@ -1,54 +1,92 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const slide = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('returns an object', t => {
-    t.deepEqual(typeof (slide()), 'object');
+const test = runner.test(slide);
+
+// Ensure the function returns objects.
+test.trial().examine(fn => {
+    return {
+        expected: `function produces object`,
+        produced: `function produces ${typeof (fn())}`,
+    };
 });
 
-test('has add() and get() function properties', t => {
-    let target = slide();
+// Ensure the returned object has both an add and get property.
+test.trial().examine(fn => {
+    const item = fn();
 
-    t.true(target.hasOwnProperty('add'));
-    t.true(target.hasOwnProperty('get'));
+    let has = item.hasOwnProperty('add') && item.hasOwnProperty('get');
+    let msg = '';
 
-    t.deepEqual(typeof (target.add), 'function');
-    t.deepEqual(typeof (target.get), 'function');
+    if (!item.hasOwnProperty('add') && !item.hasOwnProperty('get')) msg = 'missing both add() and get()';
+    else if (!item.hasOwnProperty('add')) msg = 'missing add()';
+    else if (!item.hasOwnProperty('get')) msg = 'missing get()';
+
+    return {
+        expected: `has add() and get() properties`,
+        produced: has ? `has add() and get() properties` : msg,
+    };
 });
 
-test('returns a new object each time', t => {
-    let first = slide();
+// Make sure the object returned doesn't have shared state.
+test.trial().examine(fn => {
+    const first = fn();
+    const second = fn();
+
     first.add(8);
     first.add(2);
-    t.deepEqual(first.get(), 5);
 
-    let second = slide();
     second.add(5);
     second.add(3);
 
-    t.deepEqual(second.get(), 4);
-    t.deepEqual(first.get(), 5);
+    return {
+        expected: 'function returns new objects',
+        produced: first.get() === 5 && second.get() === 4 ? 'function returns new objects' : 'function returns same object multiple tiems',
+    };
 });
 
-test('finds average of 4+ numbers', t => {
-    let a = slide();
-    a.add(2);
-    t.deepEqual(a.get(), 2);
-    a.add(5);
-    t.deepEqual(a.get(), 3.5);
-    a.add(5);
-    t.deepEqual(a.get(), 4);
-    a.add(0);
-    t.deepEqual(a.get(), 3);
-    // Drop the first two and replace it with a six.
-    a.add(6);
-    t.deepEqual(a.get(), 4);
+// Make sure we average correctly, and that the sliding window works.
+test.trial().examine(fn => {
+    const FAIL_AVERAGE = { expected: 'average slides', produced: 'doesn\'t find average' };
+    const FAIL_SLIDE = { expected: 'average slides', produced: 'finds average but doesn\'t slide' };
+
+    const s = fn();
+
+    s.add(2);
+    if (s.get() !== 2) return FAIL_AVERAGE;
+
+    s.add(5);
+    if (s.get() !== 3.5) return FAIL_AVERAGE;
+
+    s.add(5);
+    if (s.get() !== 4) return FAIL_AVERAGE;
+
+    s.add(0);
+    if (s.get() !== 3) return FAIL_AVERAGE;
+
+    s.add(6);
+    if (s.get() !== 4) return FAIL_SLIDE;
+
+    return {
+        expected: 'average slides',
+        produced: 'average slides',
+    };
 });
 
-test('returns the average of what it\'s got for < 4 numbers', t => {
-    let a = slide();
-    a.add(2);
-    t.deepEqual(a.get(), 2);
-    a.add(5);
-    t.deepEqual(a.get(), 3.5);
+// Ensure that the average we're computing is accurate.
+test.trial().examine(fn => {
+    const s = fn();
+    const FAIL = (exp, prod) => { 
+        return { expected: `accurate average (${exp})`, produced: `inaccurate average (${prod})` };
+    };
+
+    s.add(2);
+    if (s.get() !== 2) return FAIL(2, s.get());
+
+    s.add(5);
+    if (s.get() !== 3.5) return FAIL(3.5, s.get());
+
+    return { expected: 'accurate average', produced: 'accurate average' };
 });
+
+module.exports = test;

@@ -1,15 +1,16 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
-const statues = require('./sor.target');
+const sieve = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('correctly counts houses', t => {
-    t.deepEqual(statues('HLHLLS'), 0);
-    t.deepEqual(statues('LH'), 0);
+const test = runner.test(sieve);
 
-    t.deepEqual(statues('SSHLHHHH'), 1);
-    t.deepEqual(statues('HHLSLLHS'), 2);
-    t.deepEqual(statues('HLSLHSLLHS'), 3);
-    t.deepEqual(statues('HLHHSHLSH'), 4);
+// correctly identifies later versio
+test.trial('HLHLLS').produces(0);
+test.trial('LH').produces(0);
 
-    t.deepEqual(statues('HHSHHSHH'), 6);
-});
+test.trial('SSHLHHHH').produces(1);
+test.trial('HHLSLLHS').produces(2);
+test.trial('HLSLHSLLHS').produces(3);
+test.trial('HLHHSHLSH').produces(4);
+test.trial('HHSHHSHH').produces(6);
+
+module.exports = test;

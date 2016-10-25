@@ -1,27 +1,26 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const doubloon = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('works with no off events', t => {
-    t.deepEqual(doubloon('1'), 1);
-    t.deepEqual(doubloon('111'), 3);
-    t.deepEqual(doubloon('1--'), 3);
-    t.deepEqual(doubloon('1-1--'), 5);
-});
+const test = runner.test(doubloon);
 
-test('works with no on events', t => {
-    t.deepEqual(doubloon('0'), 0);
-    t.deepEqual(doubloon('000'), 0);
-    t.deepEqual(doubloon('0--'), 0);
-    t.deepEqual(doubloon('0-0--'), 0);
-});
+// Works with no off events
+test.trial('1').produces(1);
+test.trial('111').produces(3);
+test.trial('1--').produces(3);
+test.trial('1-1--').produces(5);
 
-test('works with a mix of on and off events', t => {
-    t.deepEqual(doubloon('100'), 1);
-    t.deepEqual(doubloon('101'), 2);
-    t.deepEqual(doubloon('1---0'), 4);
-    t.deepEqual(doubloon('1--0--'), 3);
-    t.deepEqual(doubloon('1-001'), 3);
+// Works with no on events 
+test.trial('0').produces(0);
+test.trial('000').produces(0);
+test.trial('0--').produces(0);
+test.trial('0-0--').produces(0);
 
-    t.deepEqual(doubloon('111----0-----1---'), 11);
-});
+// Works with a mix of on and off events
+test.trial('100').produces(1);
+test.trial('101').produces(2);
+test.trial('1---0').produces(4);
+test.trial('1--0--').produces(3);
+test.trial('1-001').produces(3);
+test.trial('111----0-----1---').produces(11);
+
+module.exports = test;
