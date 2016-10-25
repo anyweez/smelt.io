@@ -1,17 +1,15 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const binary = require('./sor.target');
+const runner = require('./mentor/runner');
 
-// Disable these functions
-parseInt = function () {}
-Number.prototype.toString = function () {}
+const test = runner.test(binary);
 
-test('successfully converts numbers', t => {
-    t.deepEqual(binary(15), '1111');
-    t.deepEqual(binary(1000), '1111101000');
-    t.deepEqual(binary(189), '10111101');
+// Valid anagrams
+test.trial(15).produces('1111').otherwise('Make sure you\'re returning a string!');
+test.trial(1000).produces('1111101000');
+test.trial(189).produces('10111101');
 
-    t.deepEqual(binary(1181), '10010011101');
-    t.deepEqual(binary(218), '11011010');
-    t.deepEqual(binary(8), '1000');
-});
+test.trial(1181).produces('10010011101');
+test.trial(218).produces('11011010');
+test.trial(8).produces('1000');
+
+module.exports = test;

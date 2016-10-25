@@ -1,40 +1,37 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const chemistry = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('passes the common cases', t => {
-    t.true(chemistry('Argon', 'An'));
-    t.true(chemistry('Argon', 'Ro'));
+const test = runner.test(chemistry);
 
-    t.true(chemistry('Nickel', 'Nk'));
-    t.true(chemistry('Nickel', 'Ck'));
+// Passes the common case
+test.trial('Argon', 'An').produces(true);
+test.trial('Argon', 'Ro').produces(true);
+test.trial('Nickel', 'Nk').produces(true);
+test.trial('Nickel', 'Ck').produces(true);
+test.trial('Hydrogen', 'Hd').produces(true);
+test.trial('Hydrogen', 'Dn').produces(true);
+test.trial('Hydrogen', 'Rg').produces(true);
 
-    t.true(chemistry('Hydrogen', 'Hd'));
-    t.true(chemistry('Hydrogen', 'Dn'));
-    t.true(chemistry('Hydrogen', 'Rg'));
-});
+// Reject symbols that aren't two letters
+test.trial('Iron', 'I').produces(false);
+test.trial('Iron', 'Irn').produces(false);
+test.trial('Gold', 'G').produces(false);
+test.trial('Gold', 'Gol').produces(false);
+test.trial('Hydrogen', 'H').produces(false);
+test.trial('Hydrogen', 'Hydro').produces(false);
 
-test('rejects symbols that arent two letters', t => {
-    t.false(chemistry('Iron', 'I'));
-    t.false(chemistry('Iron', 'Irn'));
-    t.false(chemistry('Gold', 'G'));
-    t.false(chemistry('Gold', 'Gol'));
-    t.false(chemistry('Hydrogen', 'H'));
-    t.false(chemistry('Hydrogen', 'Hydro'));
-});
+// Rejects symbols that dont contain letters from element name
+test.trial('Hydrogen', 'Xr').produces(false);
+test.trial('Nickel', 'Hr').produces(false);
+test.trial('Nickel', 'Kt').produces(false);
+test.trial('Gold', 'Dp').produces(false);
+test.trial('Gold', 'Ra').produces(false);
+test.trial('Gold', 'Iv').produces(false);
 
-test('rejects symbols that dont contain letters from element name', t => {
-    t.false(chemistry('Hydrogen', 'Xr'));
-    t.false(chemistry('Nickel', 'Hr'));
-    t.false(chemistry('Nickel', 'Kt'));
-    t.false(chemistry('Gold', 'Dp'));
-    t.false(chemistry('Gold', 'Ra'));
-    t.false(chemistry('Gold', 'Iv'));
-});
+// Reject symbols that dont match element letter ordering
+test.trial('Hydrogen', 'Ng').produces(false);
+test.trial('Hydrogen', 'Dy').produces(false);
+test.trial('Nickel', 'Li').produces(false);
+test.trial('Nickel', 'Ek').produces(false);
 
-test('reject symbols that dont match element letter ordering', t => {
-    t.false(chemistry('Hydrogen', 'Ng'));
-    t.false(chemistry('Hydrogen', 'Dy'));
-    t.false(chemistry('Nickel', 'Li'));
-    t.false(chemistry('Nickel', 'Ek'));
-});
+module.exports = test;

@@ -1,15 +1,15 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const heatmap = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('standard cases', t => {
-    t.deepEqual(heatmap(0), { red: 0, green: 0, blue: 255 });
+const test = runner.test(heatmap);
 
-    t.deepEqual(heatmap(10), { red: 25.5, green: 0, blue: 229.5 });
-    t.deepEqual(heatmap(25), { red: 63.75, green: 0, blue: 191.25 });
-    t.deepEqual(heatmap(60), { red: 153, green: 0, blue: 102 });
-    t.deepEqual(heatmap(75), { red: 191.25, green: 0, blue: 63.75 });
-    t.deepEqual(heatmap(90), { red: 229.5, green: 0, blue: 25.5 });
-    
-    t.deepEqual(heatmap(100), { red: 255, green: 0, blue: 0 });
-});
+// Works with no off events
+test.trial(0).produces({ red: 0, green: 0, blue: 255 });
+test.trial(10).produces({ red: 25.5, green: 0, blue: 229.5 });
+test.trial(25).produces({ red: 63.75, green: 0, blue: 191.25 });
+test.trial(60).produces({ red: 153, green: 0, blue: 102 });
+test.trial(75).produces({ red: 191.25, green: 0, blue: 63.75 });
+test.trial(90).produces({ red: 229.5, green: 0, blue: 25.5 });
+test.trial(100).produces({ red: 255, green: 0, blue: 0 });
+
+module.exports = test;

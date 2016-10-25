@@ -1,15 +1,16 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const investor = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('finds profitable paths', t => {
-    t.deepEqual(investor([5, 1, 6]), 5);
-    t.deepEqual(investor([1, 5, 4, 2]), 4);
-    t.deepEqual(investor([1, 3, 9, 4, 7, 40]), 44);
-    t.deepEqual(investor([5, 1, 6, 4, 5, 7]), 8);
-});
+const test = runner.test(investor);
 
-test('no profitable paths available', t => {
-    t.deepEqual(investor([5, 1]), 0);
-    t.deepEqual(investor([11, 5, 4, 2, 1]), 0);
-});
+// Finds profitable paths
+test.trial([5, 1, 6]).produces(5);
+test.trial([1, 5, 4, 2]).produces(4);
+test.trial([1, 3, 9, 4, 7, 40]).produces(44);
+test.trial([5, 1, 6, 4, 5, 7]).produces(8);
+
+// No profitable path available
+test.trial([5, 1]).produces(0);
+test.trial([11, 5, 4, 2, 1]).produces(0);
+
+module.exports = test;

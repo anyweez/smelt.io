@@ -1,15 +1,17 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const wordhunt = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('properly matches pattern', t => {
-    t.deepEqual(wordhunt(['about', 'abler', 'creep', 'oboes'], '_b___'), 3);
-    t.deepEqual(wordhunt(['arctic', 'apple', 'frankie'], 'a_c___'), 1);
-    t.deepEqual(wordhunt(['heart', 'nope', 'plart'], '__art'), 2);
+const test = runner.test(wordhunt);
 
-    t.deepEqual(wordhunt(['word', 'bird', 'nerd', 'third'], '__rd'), 3);
-    t.deepEqual(wordhunt(['word', 'bird', 'nerd', 'third'], 'b_de'), 0);
-    t.deepEqual(wordhunt(['word', 'bird', 'nerd', 'third'], 'b_d'), 0);
+// properly matches pattern
+test.trial(['about', 'abler', 'creep', 'oboes'], '_b___').produces(3);
+test.trial(['arctic', 'apple', 'frankie'], 'a_c___').produces(1);
+test.trial(['arctic', 'apple', 'frankie'], '__art').produces(0);
 
-    t.deepEqual(wordhunt([], '_b_b_'), 0);
-});
+test.trial(['word', 'bird', 'nerd', 'third'], '__rd').produces(3);
+test.trial(['word', 'bird', 'nerd', 'third'], 'b_de').produces(0);
+test.trial(['word', 'bird', 'nerd', 'third'], 'b_d').produces(0);
+
+test.trial([], '_b_b_').produces(0);
+
+module.exports = test;

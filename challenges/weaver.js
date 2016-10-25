@@ -1,16 +1,18 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const weaver = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('standard cases', t => {
-    t.deepEqual(weaver('temptation', 't', 1), 'tttttttttt');
-    t.deepEqual(weaver('first attempt', 'x', 3), 'fixstxatxemxt');
-    t.deepEqual(weaver('more great food', 'a', 2), 'mara araaa aoad');
-    t.deepEqual(weaver('jeb kicks', 't', 6), 'jeb ktcks');
-    t.deepEqual(weaver('pearl kingdom', 'x', 5), 'pearx kinxdom');
-});
+const test = runner.test(weaver);
 
-test('freq > word length', t => {
-    t.deepEqual(weaver('house', 'x', 10), 'house');
-    t.deepEqual(weaver('a', 'x', 2), 'a');
-});
+// standard cases
+test.trial('temptation', 't', 1).produces('tttttttttt');
+test.trial('first attempt', 'x', 3).produces('fixstxatxemxt');
+
+test.trial('more great food', 'a', 2).produces('mara araaa aoad');
+test.trial('jeb kicks', 't', 6).produces('jeb ktcks');
+test.trial('pearl kingdom', 'x', 5).produces('pearx kinxdom');
+
+// freq > word length
+test.trial('house', 'x', 10).produces('house');
+test.trial('a', 'x', 2).produces('a');
+
+module.exports = test;

@@ -1,14 +1,13 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const narcissistic = require('./sor.target');
+const runner = require('./mentor/runner');
 
-console.warn('Warning: this test is somewhat slow!');
+const test = runner.test(narcissistic);
 
-test('correctly finds narcissistic numbers', t => {
-    t.deepEqual(narcissistic(1), 0);
-    t.deepEqual(narcissistic(11), 153);
-    t.deepEqual(narcissistic(12), 370);
-    t.deepEqual(narcissistic(15), 1634);
-    t.deepEqual(narcissistic(19), 92727);
-    t.deepEqual(narcissistic(25), 9926315);
-});
+test.trial(1).produces(0);
+test.trial(11).produces(153);
+test.trial(12).produces(370);
+test.trial(15).produces(1634);
+test.trial(19).produces(92727);
+test.trial(25).produces(9926315);
+
+module.exports = test;

@@ -1,31 +1,30 @@
-const process = require('process');
-const test = require(process.env.SOR_RUNNER_DIR).test;
 const palindrome = require('./sor.target');
+const runner = require('./mentor/runner');
 
-test('identifies palindromes with even character counts', t => {
-    t.true(palindrome('Anna'));
-    t.true(palindrome('Elle'));
-    t.true(palindrome('Hannah'));
-    t.true(palindrome('noon'));
-    t.true(palindrome('redder'));
-});
+const test = runner.test(palindrome);
 
-test('identifies palindromes with odd character counts', t => {
-    t.true(palindrome('abcdcba'));
-    t.true(palindrome('civic'));
-    t.true(palindrome('eve'));
-    t.true(palindrome('evitative'));
-});
+// identifies palindromes with even character counts
+test.trial('Anna').produces(true).otherwise('Are you ignoring capitalization?');
+test.trial('Elle').produces(true);
+test.trial('Hannah').produces(true);
+test.trial('noon').produces(true);
+test.trial('redder').produces(true);
 
-test('ignore spaces in palindromes', t => {
-    t.true(palindrome('A Santa at Nasa'));
-    t.true(palindrome('Avid diva'));
-    t.true(palindrome('Mail Liam'));
-    t.true(palindrome('Name not one man'));
-});
+// identifies palindromes with odd character counts
+test.trial('abcdcba').produces(true);
+test.trial('civic').produces(true);
+test.trial('eve').produces(true);
+test.trial('evitative').produces(true);
 
-test('rejects non-palindromes', t => {
-    t.false(palindrome('hut'));
-    t.false(palindrome('This is not a palindrome'));
-    t.false(palindrome('another faker'));
-});
+// ignore spaces in palindromes
+test.trial('A Santa at Nasa').produces(true);
+test.trial('Avid diva').produces(true);
+test.trial('Mail Liam').produces(true);
+test.trial('Name not one man').produces(true);
+
+// rejects non-palindromes
+test.trial('hut').produces(false);
+test.trial('This is not a palindrome').produces(false);
+test.trial('another faker').produces(false);
+
+module.exports = test;
