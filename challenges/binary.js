@@ -1,5 +1,5 @@
 const binary = require('./sor.target');
-const runner = require('./mentor/runner');
+const runner = require('sor/mentor/runner');
 
 const test = runner.test(binary);
 
