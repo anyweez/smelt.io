@@ -11,6 +11,7 @@ before_script:
     - pip install --user awscli
     - export PATH=$PATH:$HOME/.local/bin
     - npm install -g gulp sor serve
+    - npm link sor
 script: 
     - npm run build
     - serve public &
