@@ -7,11 +7,16 @@ node_js:
     - "6.4"
     - "6.5"
     - "6"
+env:
+    matrix:
+        - LOAD_SOR_SOURCE=live
+        - LOAD_SOR_SOURCE=master
 before_script:
     - pip install --user awscli
     - export PATH=$PATH:$HOME/.local/bin
-    - npm install -g gulp sor serve
-    - npm link sor
+    - npm install -g gulp serve
+    - if [ "$LOAD_SOR_SOURCE" = "live" ]; then npm install -g sor; fi
+    - if [ "$LOAD_SOR_SOURCE" = "master" ]; then git clone https://github.com/anyweez/sor && cd sor && npm link && cd ..; fi
 script: 
     - npm run build
     - serve public &
