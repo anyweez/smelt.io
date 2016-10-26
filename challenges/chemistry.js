@@ -1,5 +1,5 @@
 const chemistry = require('./sor.target');
-const runner = require('sor/mentor/runner');
+const runner = require(`${process.env.SOR_MENTOR_PATH}/runner`);
 
 const test = runner.test(chemistry);
 
