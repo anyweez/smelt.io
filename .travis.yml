@@ -7,11 +7,15 @@ node_js:
     - "6.4"
     - "6.5"
     - "6"
+env:
+    matrix:
+        - LOAD_SOR_CMD=(git clone https://github.com/anyweez/sor && cd sor && npm link)
+        - LOAD_SOR_CMD=npm install -g sor
 before_script:
     - pip install --user awscli
     - export PATH=$PATH:$HOME/.local/bin
-    - npm install -g gulp sor serve
-    - npm link sor
+    - npm install -g gulp serve
+    - $LOAD_SOR_CMD
 script: 
     - npm run build
     - serve public &
