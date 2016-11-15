@@ -19,13 +19,13 @@
         "parameters": ["string"],
         "returns": "number",
         "examples": [{
-            "inputs": ["'xoxxxoooxx'"],
+            "inputs": ["xoxxxoooxx"],
             "output": 3
         },{
-            "inputs": ["'xooo'"],
+            "inputs": ["xooo"],
             "output": 1
         },{
-            "inputs": ["'xtraxtraxrxxxxx'"],
+            "inputs": ["xtraxtraxrxxxxx"],
             "output": 5
         }]
     },
